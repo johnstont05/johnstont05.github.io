@@ -275,13 +275,13 @@ a, a:hover {
 }
 img.ri {
     position:absolute;
-    max-width: 80%;
+    max-width: 30%;
     top:10%;
     left; 10%;
 }
 
 img.ri:empty {
-    top:52%;
+    top:60%;
     left:50%;
     -webkit-transform: translate(-50%, -%50);
     -moz-transform: translate(-50%, -50%);
