@@ -136,7 +136,91 @@ p {
 
 a {
     text-decoration: none;
-    color: inherit;
+    colorA@import url('https://fonts.googleapis.com/css?family=Hind');
+
+* {
+  box-sizing: border-box; 
+}
+
+body {
+  font-family: 'Hind', sans-serif;
+  background: #F0F0F0;
+  color: #333;
+}
+
+h1 a {
+  color: #333;
+  text-decoration: none;
+  border-bottom: 0;
+}
+
+a {
+  color: dodgerblue;
+}
+
+a:hover {
+  color: #777;
+}
+
+img {
+  display: block;
+  width: 100%; 
+  border: 6px solid lightsteelblue;
+}
+
+section {
+  margin: 2rem 3rem;
+}
+
+h1 {
+  font-size: 4rem;
+  text-transform: uppercase;
+  margin: 2rem 3rem;
+  border-bottom: 1px solid #BBB;
+}
+
+h2 {
+  font-size: 3rem;
+  margin: 0 0 0 15px;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin: 2rem 0 0 0;
+  line-height: 0.5;
+}
+
+.responsive ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 1rem; 
+}
+
+.responsive2 ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-gap: 1rem; 
+}
+
+ul {
+  list-style: none;
+  margin: 0rem;
+  padding: 1rem;
+
+}
+
+li {
+  background: #FFF;
+  padding: 1rem;
+}
+
+@media (max-width: 550px) {
+  h1, h2 {
+    font-size: 2rem;
+  }
+}: inherit;
 }
 
 a:hover, a:active {
