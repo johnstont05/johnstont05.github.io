@@ -336,22 +336,25 @@ p {
     text-align:center;
     text-decoration:none;
     font-family: 'Lato', sans-serif;
-}
-
-
-footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    overflow:hidden;
-    text-align: center;
-    font-family: lato;
-}
-footer h1 {
-    font-size: 10px;
     color: white;
 }
+
+
+#about-me-box{
+    margin-top: 30px;
+    margin-left: 20px;
+  }
+  #about-me-heading{
+    color: white;
+  }
+  .image-border {
+    border-color: white;
+    border-width: 10px;
+    border-style: solid;
+    border-radius: 50%;
+    width: 400px;
+    margin-bottom: 10px;
+  }
 
 /* SOCIAL MEDIA ICONS */
 
@@ -464,5 +467,4 @@ img.ri:empty {
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     }
-        
 
