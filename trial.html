@@ -8,7 +8,7 @@
     <title>Taylor Johnston</title>
     <meta charset="utf-8"/>
         <link rel="stylesheet"
-              type="text/css" href="TRIAL.css">
+              type="text/css" href="trial.css">
        <link href="https://fonts.googleapis.com/css?family=Lato:400,400i" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
@@ -16,24 +16,29 @@
 
 <!-- NAV BAR -->
 
-<body>
-	<nav class="clearfix">
-		<ul class="clearfix">
-			<li><a href="#">Home</a></li>
-			<li><a href="#">About</a></li>
-			<li><a href="#">Resume</a></li>
-			<li><a href="#">Writing</a></li>
-			<li><a href="#">Design</a></li>
+<nav>
+    <div class="container0">
+        <div id="i" class="inav">
+            <div class="c1"></div>
+            <div class="c2"></div>
+            <div class="c3"></div>
+        </div>
+    </div>
 
-		</ul>
-		<a href="#" id="pull">Menu</a>
-	</nav>
+    <ul id="nav" class="nav">
+	    <a href="index.html">Home</a>
+	   <a href="about.html">About</a>
+      <a href="resume.html">Resume</a>
+      <a href="writing.html">Writing</a>
+    <a href="designs.html">Design</a>
+
+    </ul>
+</nav>  
 
 
 
 <!-- PORTFOLIO -->
     <div class="main">
-<hr>
 <div class="row">
   <div class="column">
     <div class="content">
@@ -92,16 +97,10 @@
     </div>
   </div>
 </div>
-
-
+</div>
         
-<!-- END MAIN -->
-</div>
-    
-    
-    <div class="footer">
-  <p>Developed by Taylor Johnston</p>
-</div>
+        
+  <footer>Developed by Taylor Johnston<br>Copyright &copy; 2017</footer>
         
         <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -110,25 +109,31 @@
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-102043129-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-		<script>		$(function() {
-			var pull 		= $('#pull');
-				menu 		= $('nav ul');
-				menuHeight	= menu.height();
-
-			$(pull).on('click', function(e) {
-				e.preventDefault();
-				menu.slideToggle();
-			});
-
-			$(window).resize(function(){
-        		var w = $(window).width();
-        		if(w > 320 && menu.is(':hidden')) {
-        			menu.removeAttr('style');
-        		}
-    		});
-		});</script>
+            ga('send', 'pageview');</script>
+       <script>var nav = document.getElementById('nav'),
+                        i = document.getElementById('i'),
+                        c1 = document.getElementsByTagName('div')[2],
+                        c2 = document.getElementsByTagName('div')[3],
+                        c3 = document.getElementsByTagName('div')[4];
+                    i.addEventListener('click', function() {
+                        if (nav.className.match(/\bopen\b/)) {
+                            nav.classList.remove('open');
+                            c1.classList.remove('close-c1');
+                            c2.classList.remove('close-c2');
+                            c3.classList.remove('close-c3');
+                        } else {
+                            nav.classList.add('open');
+                            c1.classList.add('close-c1');
+                            c2.classList.add('close-c2');
+                            c3.classList.add('close-c3');
+                        }
+                    });
+                    nav.addEventListener('click', function() {
+                        nav.classList.remove('open');
+                        c1.classList.remove('close-c1');
+                        c2.classList.remove('close-c2');
+                        c3.classList.remove('close-c3');
+                    });</script>
+    
     </body>
 </html>
