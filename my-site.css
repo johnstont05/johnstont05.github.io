@@ -134,9 +134,7 @@ p {
     font-family: 'Lato', sans-serif;
 }
 
-a {
-    text-decoration: none;
-    colorA@import url('https://fonts.googleapis.com/css?family=Hind');
+
 
 * {
   box-sizing: border-box; 
@@ -154,13 +152,7 @@ h1 a {
   border-bottom: 0;
 }
 
-a {
-  color: dodgerblue;
-}
 
-a:hover {
-  color: #777;
-}
 
 img {
   display: block;
