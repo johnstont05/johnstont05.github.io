@@ -81,6 +81,11 @@ body {
 	margin: 0;
 	padding: 0;
     background: lightgray;
+    height: 100%;
+}
+
+#body {
+    
 }
 
 
@@ -358,11 +363,12 @@ a:hover {
   .image-border {
     border-color: white;
     border-width: 10px;
-    border-style: solid;
+    border-style: double;
     border-radius: 50%;
     width: 200px;
     margin-bottom: 10px;
   }
+
 
 /* SOCIAL MEDIA ICONS */
 
@@ -402,6 +408,34 @@ a:hover {
 	-webkit-transition: all ease 0.5s;
 	-o-transition: all ease 0.5s;
 }
+
+/*FOOTER*/
+
+#container {
+   min-height:100%;
+   position:relative;
+}
+#headerr {
+   padding:0px;
+}
+#body {
+   padding:10px;
+   padding-bottom:20px;   /* Height of the footer */
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+    width: 100%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  text-align: center;
+  font-family: lato;
+  color: white;
+    font-size: 12px;
+}
+
+
 /* GALLERY */
 *, *:before, *:after {
   box-sizing: border-box;
@@ -475,4 +509,6 @@ img.ri:empty {
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     }
+        
+
 
