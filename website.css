@@ -1,0 +1,411 @@
+body {
+    background-color: #dddee5;
+}
+
+a{ 
+    color: darkgray;
+    text-decoration:none;
+}
+
+a:visited { text-decoration: none; }
+a:hover {
+    text-decoration: none;
+    color: dimgray;
+}
+a:focus { text-decoration: none; }
+a:hover, a:active { text-decoration: none; }
+
+/*NAVIGATION BAR*/
+.navbar {
+    background-color: #417A70;
+}
+
+.navbar-brand {
+    font-family: Poppins;
+    font-size: 30px;
+}
+
+.navbar-default .navbar-brand  {
+    color: white;
+}
+
+.font1 {
+    font-family: Poppins;
+    font-weight: 100;
+}
+.font2 {
+    font-family: Poppins;
+    font-weight: 900;
+}
+
+.navbar-nav {
+    font-family: Roboto;
+    font-weight: 100;
+}
+
+.navbar-nav li {
+    font-size: 20px;
+}
+.navbar-default .navbar-nav > li > a {
+    color: white;
+}
+
+.navbar-nav li:hover {
+    background-color: #295A5B;
+}
+
+.dropdown-item:active {
+    background-color: #153c48;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  color: white;
+}
+
+/*JUMBOTRON*/
+.jumbotron-section-1 {
+    padding-top: 70px !important;
+}
+.jumbotron-section-1-bg {
+    height: 465px;
+    background-size:100% 100%;
+    background-color: #dddee5;
+}
+.introduction {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    width: 100%;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.introduction p {
+    font-weight: bold;
+    color: white;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 2vw;
+}
+
+.jumbotron1 {
+    font-family: Poppins;
+    font-weight: 100;
+    color: #41796F;
+    font-size: 7vw;
+}
+
+.jumbotron2 {
+    font-family: Poppins;
+    font-weight: 900;
+    color: #133B48;
+    font-size: 7vw;
+}
+
+/*ALBUM*/
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+
+.albumtitle {
+  font-family: 'Roboto';
+  color: black;
+  text-align: left;
+  font-size: 25px;
+}
+
+.albumsubhed {
+  font-family: 'Roboto';
+  font-weight:300;
+  color: black;
+  text-align: left;
+  font-size: 15px; 
+  text-align: center;
+}
+
+/*RESUME*/
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  max-width: 400px;
+  margin: 20px auto;
+ }
+
+#singlebutton {
+  background-color: #133B48;
+  font-family: Roboto;
+  font-weight: 100;
+   margin-top: 30px;
+}
+
+.img-fluid {
+    margin-bottom: 100px;
+}
+
+/*FEATURETTE*/
+.row {
+    margin: 40px;
+    padding-top: 30px;
+}
+
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -.05rem;
+    margin-left: 20px;
+    padding-top: 40px;
+}
+
+.lead {
+    margin-right: 50px;
+    margin-left: 20px;
+}
+
+@media (min-width: 40em) {
+  .featurette-heading {
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 10rem;
+    margin-right: 10rem;
+  }
+}
+
+/*SOCIAL BUTTONS*/
+.bodystyle {
+  padding: 100px 20px 20px 20px;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.social__button {
+  display: block;
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  background: #fff;
+  position: relative;
+  cursor: pointer;
+  margin: 5px;
+  text-align: center;
+}
+.social__button i {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 75px;
+  line-height: 75px;
+  width: 75px;
+  font-size: 37.5px;
+  color: #000;
+  z-index: 2;
+  transition: 0.3s;
+}
+.social__button:after {
+  content: '';
+  display: block;
+  position: absolute;
+  background: #000;
+  border-radius: 100%;
+  width: 0;
+  height: 0;
+  transition: 0.3s;
+  top: 0;
+  left: 50%;
+}
+.social__button:hover i {
+  color: #fff;
+}
+.social__button:hover:after {
+  width: 75px;
+  height: 75px;
+  margin-left: -37.5px;
+}
+
+.facebook i {
+  color: #3b5999;
+}
+.facebook:after {
+  background: #3b5999;
+}
+
+.linkedin i {
+  color: #0077b5;
+}
+.linkedin:after {
+  background: #0077b5;
+}
+
+.github i {
+  color: #6e5494;
+}
+.github:after {
+  background: #6e5494;
+}
+
+.twitter i {
+   color:#55ACEE; 
+}
+
+.twitter:after {
+   background:#55ACEE; 
+}
+
+.instagram i {
+   color:#125688; 
+}
+
+.instagram:after {
+   background:#125688; 
+}
+
+/*CONTACT DESCRIPTION*/
+.contactme {
+    font-family: Poppins;
+    text-align: center;
+}
+
+/*FOOTER*/
+.footer {
+  position: fixed;
+  left: 0;
+  height: 65px;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-image: url(img/footer.png);
+}
+
+.footer p{
+  padding: 2%;
+  color: white;
+  font-family: roboto;
+  font-weight: 100;
+  font-size: 10px
+}
+
+
+/*
+--------------------
+MEDIA QUERIES
+--------------------
+*/
+/*IPAD PRO SIZING*/
+@media only screen and (max-width: 1024px) {  
+
+     .introduction p {
+        font-size: 40px;
+    }
+    
+    .footer p {
+        font-size: 20px;
+        padding: 20px;
+    }
+    
+    .jumbotron1 {
+        font-size: 90px;
+    }
+    
+    .jumbotron2{
+        font-size: 90px;
+    }
+    
+    .jumbotron-section-1-bg {
+        height: 500px;
+}
+    
+/*IPAD SIZING*/
+@media only screen and (max-width: 768px) { 
+    .navbar-brand {
+        display: none;
+    }
+     .introduction p {
+        font-size: 30px;
+    }
+    
+    .footer p {
+        font-size: 10px;
+        padding: 30px;
+    }
+    
+    .navbar-brand {
+        display: none;
+    }
+    
+    .jumbotron1 {
+        font-size: 70px;
+    }
+    
+    .jumbotron2{
+        font-size: 70px;
+    }
+    
+    .jumbotron-section-1-bg {
+        height: 500px;
+    
+    }
+    
+    .featurette-heading {
+        font-family: Poppins;
+        margin-top: -60px;
+        text-align: center;
+    }
+        
+    .lead {
+        text-align: center;
+        }
+
+}
+
+
+/*MOBILE SIZING*/
+@media only screen and (max-width: 600px) {
+    .introduction p {
+        font-size: 15px;
+        padding: 
+    }
+    
+    .footer p {
+        font-size: 8px;
+        padding: 7%;
+    }
+    
+    .navbar-brand {
+        display: none;
+    }
+    
+    .jumbotron1 {
+        font-size: 30px;
+    }
+    
+    .jumbotron2{
+        font-size: 30px;
+    }
+    
+    .jumbotron-section-1-bg {
+    height: 500px;
+    }
+
+    .featurette-heading {
+    font-size: 40px;
+    
+}
