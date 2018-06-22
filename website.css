@@ -18,6 +18,7 @@ a:hover, a:active { text-decoration: none; }
 /*NAVIGATION BAR*/
 .navbar {
     background-color: #417A70;
+    z-index: 500;
 }
 
 .navbar-brand {
