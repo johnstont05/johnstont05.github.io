@@ -278,8 +278,9 @@ nav li li a:hover{
 
 /*HEADSHOT*/
 .headshot {
-    max-width: 40%;
+    max-width: 33%;
     height: auto;
+    padding: 30px;
 }
 
 
