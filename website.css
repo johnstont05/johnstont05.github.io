@@ -283,6 +283,17 @@ nav li li a:hover{
     padding: 30px;
 }
 
+/*RESUME*/
+
+.resume-img {
+    width: 30%;
+    height: auto;
+    border: solid white 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 18px;
+}
 
 
 /*FOOTER*/
