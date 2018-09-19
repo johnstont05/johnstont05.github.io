@@ -284,7 +284,6 @@ nav li li a:hover{
 }
 
 /*RESUME*/
-
 .resume-img {
     width: 26%;
     height: auto;
@@ -307,17 +306,15 @@ nav li li a:hover{
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
-    margin: -20px -50px; 
+    margin: 15px -125px; 
     position:relative;
     top:50%; 
-    left:50%;
-    
+    left:50%; 
 }
 
 .button1 {
     background-color: #417A70; 
     color: white; 
-    
 }
 
 .button1:hover {
@@ -343,5 +340,3 @@ nav li li a:hover{
 .footer p {
     padding-top: 28px;
 }
-
-
