@@ -10,6 +10,15 @@ body {
     background-color: #DDDEE5;
 }
 
+@media only screen and (max-width: 600px) {
+body {
+    background-color: #DDDEE5;
+    min-height: 1100px;
+   margin-bottom: 100px;
+   clear: both;
+}
+}
+
 a{
 	text-decoration:none;
 	color:#fff
@@ -159,11 +168,7 @@ nav li li a:hover{
 }
 }
 @media only screen and (max-width: 959px) {
-/*
-    .logo {
-        visibility: hidden;
-    }
-*/
+
 	nav{
 		display:none;
 		width:100%;
@@ -276,12 +281,68 @@ nav li li a:hover{
     font-size: 10vw;
 }
 
-/*HEADSHOT*/
+/*ABOUT ME*/
 .headshot {
     max-width: 28.7%;
     height: auto;
     margin: 18px;
+    float: left;
 }
+
+.about_me {
+    font-family: 'Roboto';
+    font-weight: 100;
+    font-size: 20px;
+    float: left;
+    margin: 18px;
+    width: 40%;
+}
+
+.about_me h1 {
+    font-family: 'Roboto';
+    font-weight: 500;
+}
+
+.about_me p {
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+@media only screen and (max-width: 1024px)  {
+     .headshot {
+    max-width: 50%;
+    height: auto;
+    margin: 30px;
+    float: left;
+}     
+}
+
+@media only screen and (max-width: 768px)  {
+     .headshot {
+    max-width: 40%;
+    height: auto;
+    margin: 30px;
+    float: left;
+}     
+}
+
+@media only screen and (max-width: 600px) {
+  .headshot {
+    max-width: 78.7%;
+    height: auto;
+    margin: 40px;
+    float: left;
+}  
+    
+    .about_me {
+    margin-top: -20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    width: 75%;
+        text-align: center;
+    }
+}
+
 
 /*RESUME*/
 .resume-img {
