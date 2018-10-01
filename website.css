@@ -295,7 +295,7 @@ nav li li a:hover{
     font-size: 20px;
     float: left;
     margin: 18px;
-    width: 40%;
+    width: 60%;
 }
 
 .about_me h1 {
@@ -315,6 +315,10 @@ nav li li a:hover{
     margin: 30px;
     float: left;
 }     
+    
+    .about_me {
+        width: 40%;
+    }
 }
 
 @media only screen and (max-width: 768px)  {
