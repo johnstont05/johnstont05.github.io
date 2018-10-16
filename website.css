@@ -13,7 +13,7 @@ body {
 @media only screen and (max-width: 600px) {
 body {
     background-color: #DDDEE5;
-    min-height: 500px;
+    min-height: 00px;
    margin-bottom: 250px;
    clear: both;
     }
@@ -465,6 +465,7 @@ content:'\f16d';
 .main {
     max-width: 1000px;
     margin: auto;
+    padding-bottom: 50px;
 }
 
 .row {
@@ -505,16 +506,18 @@ content:'\f16d';
 .btn {
   border: none;
   outline: none;
-  padding: 12px 16px;
+  padding: 12px 12px;
   background-color: white;
   cursor: pointer;
   font-family: 'Roboto';
   font-weight: 300;
   font-size: 16px;
+  margin: 10px;
 }
 
 .btn:hover {
-  background-color: #ddd;
+  background-color: #666;
+    color: #fff;
 }
 
 .btn.active {
