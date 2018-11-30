@@ -227,6 +227,7 @@
     }
      .footer {
          font-size: 12px;
+         font-weight: 100;
     }
 }
 /*MAIN LOGO*/
@@ -513,6 +514,7 @@
 }
 
 /*FORM (FROM W3SCHOOLS)*/
+/*
 input[type=text], select, textarea {
     width: 100%; 
     padding: 12px;  
@@ -548,10 +550,9 @@ input[type=submit]:hover {
     background-color: #295A5B;
 }
 
-.container {
-    padding: 10px;
-    font-family: 'Roboto';
-}
+/*
+
+*/
 /*FOOTER*/
  .footer {
      position: fixed;
