@@ -385,8 +385,7 @@
      .social_icons {
          display: inline-block;
          padding-right:50px;
-         top:52%;
-         left:60%;
+         padding-left: 30px;
     }
      .social_icons a {
          margin-top: 10px;
@@ -513,46 +512,11 @@
     }
 }
 
-/*FORM (FROM W3SCHOOLS)*/
-/*
-input[type=text], select, textarea {
-    width: 100%; 
-    padding: 12px;  
-    border: 1px solid #ccc; 
-    border-radius: 5px; 
-    box-sizing: border-box; 
-    margin-top: 12px;
-    margin-bottom: 12px;
-    resize: vertical;
-    font-family: 'Roboto';
+/*FORM*/
+.form {
+    margin: 0 auto;
+    text-align: center;
 }
-
-input[type=submit] {
-    background-color: #417A70;
-     border: none;
-     color: #FFFFFF;
-     padding: 16px 32px;
-     text-align: center;
-     text-decoration: none;
-     display: inline-block;
-     font-size: 16px;
-     -webkit-transition-duration: 0.4s;
-     transition-duration: 0.4s;
-     cursor: pointer;
-     margin: 12px -125px;
-     position:relative;
-     border-radius: 5px; 
-     top:50%;
-     left:50%;
-}
-
-input[type=submit]:hover {
-    background-color: #295A5B;
-}
-
-/*
-
-*/
 /*FOOTER*/
  .footer {
      position: fixed;
