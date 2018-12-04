@@ -514,6 +514,9 @@ h1.work{
     }
 }
 /*RESUME*/
+.resume_button{
+    padding-bottom: 150px;
+}
  .resume-img {
      width: 26%;
      height: auto;
