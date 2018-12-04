@@ -184,18 +184,22 @@ h1.work{
      #menu-icon{
          display:inline;
          top:45px;
-         cursor:pointer 
+         cursor:pointer;
+         background: none;
     }
      #menu-icon.active .first{
          transform:rotate(45deg);
          -webkit-transform:rotate(45deg);
-         margin-top:10px 
+         margin-top:10px;
+         background-color: none;
     }
      #menu-icon.active .second{
          transform:rotate(135deg);
          -webkit-transform:rotate(135deg);
          position:relative;
          top:-9px;
+        background-color: none;
+
     }
      #menu-icon.active .third{
          display:none 
