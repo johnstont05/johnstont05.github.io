@@ -510,9 +510,10 @@ h1.work{
 }
 
 
- @media only screen and (max-width: 540px) {
+ @media only screen and (max-width: 600px) {
      .social_icons {
          display: inline-block;
+         margin-left:11%;
     }
 }
 
