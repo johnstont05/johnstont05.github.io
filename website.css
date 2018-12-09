@@ -459,7 +459,7 @@ h1.work{
 }
 /*SOCIAL ICONS*/
  .social_icons {
-     padding-top: 200px;
+     padding-top: 240px;
      display: inline-block;
      position:relative;
      left:50%;
@@ -479,7 +479,7 @@ h1.work{
      width:80px;
      height:70px;
      padding-top:20px;
-     margin:0 2px;
+     margin:0 3px;
      -o-transition:all .5s;
      -webkit-transition: all .5s;
      -moz-transition: all .5s;
@@ -508,14 +508,13 @@ h1.work{
  .social_icons a:nth-of-type(6):before {
      content:'\f16d';
 }
- @media only screen and (max-width: 600px) {
+
+
+ @media only screen and (max-width: 640px) {
      .social_icons {
          display: inline-block;
-         padding-right:50px;
-         padding-left: 65px;
-    }
-     .social_icons a {
-         margin-top: 10px;
+         padding-top: 200px;
+         margin: 24px;
     }
 }
 
