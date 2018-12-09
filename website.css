@@ -516,7 +516,7 @@ h1.work{
      .social_icons {
          display: inline-block;
          padding-right:50px;
-         padding-left: 30px;
+         padding-left: 65px;
     }
      .social_icons a {
          margin-top: 10px;
@@ -527,7 +527,7 @@ h1.work{
      .social_icons {
          display: inline-block;
          top:52%;
-         left:60%;
+         left:50%;
     }
      .social_icons a {
          margin-top: 10px;
