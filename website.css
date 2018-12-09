@@ -429,13 +429,17 @@ h1.work{
 }
  @media only screen and (max-width: 1024px) {
      .headshot {
-         max-width: 40%;
+         max-width: 78.7%;
          height: auto;
-         margin: 30px;
+         margin: 70px;
          float: left;
     }
      .about_me {
-         width: 40%;
+         margin-top: -20px;
+         margin-left: 50px;
+         margin-right: 50px;
+         width: 85%;
+         text-align: center;
     }
 }
  @media only screen and (max-width: 600px) {
