@@ -568,6 +568,8 @@ h1.work{
  .button1 {
      background-color: #417A70;
      color: white;
+     font-family: 'Roboto';
+     font-weight: 300;
 }
  .button1:hover {
      background-color: #295A5B;
