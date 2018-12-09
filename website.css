@@ -660,6 +660,8 @@ h1.work{
     margin: 0 auto;
     text-align: center;
     font-size: 25px;
+    position: relative;
+    bottom: 100px;
 }
 /*FOOTER*/
  .footer {
