@@ -191,14 +191,14 @@ h1.work{
          transform:rotate(45deg);
          -webkit-transform:rotate(45deg);
          margin-top:10px;
-         background-color: none;
+         background-color: transparent;
     }
      #menu-icon.active .second{
          transform:rotate(135deg);
          -webkit-transform:rotate(135deg);
          position:relative;
          top:-9px;
-        background-color: none;
+        background-color: transparent;
 
     }
      #menu-icon.active .third{
