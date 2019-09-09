@@ -1,402 +1,447 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <!-- Required meta tags -->
-      <title>Taylor Johnston</title>
-      <meta charset="utf-8">
-      <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-      <meta content="Taylor Johnston" property="og:title">
-      <meta content="A website that showcases work ranging from writing, web design and illustrations." property="og:description">
-      <meta content="http://i67.tinypic.com/2ur1but.png" property="og:image">
-      <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,500" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Poppins:100,900" rel="stylesheet">
-      <link href="website.css" rel="stylesheet" type="text/css">
-      <link href="img/favicon.png" rel="shortcut icon" type="image/x-icon">
-      <link href="img/favicon.png" rel="icon" type="image/x-icon">
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-      <link href="website.css" rel="stylesheet" type="text/css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-   </head>
-   <body>
-      <!--NAVIGATION BAR-->
-      <div id="header">
-         <div class="logo">
-            <a href="index.html"><span class="font1">TAYLOR</span><span class="font2">JOHNSTON</span></a>
-         </div>
-         <nav>
-            <ul>
-               <li>
-                  <a href="index.html">Home</a>
-               </li>
-               <li>
-                  <a href="about.html">About</a>
-               </li>
-               <li>
-                  <a href="resume.html">Résumé</a>
-               </li>
-               <li>
-                  <a href="portfolio.html">Portfolio</a>
-               </li>
-               <li>
-                  <a href="contact.html">Contact</a>
-               </li>
-            </ul>
-         </nav>
+
+<head>
+  <!-- Required meta tags -->
+  <title>Taylor Johnston</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+  <meta content="Taylor Johnston" property="og:title">
+  <meta content="A website that showcases work ranging from writing, web design and illustrations." property="og:description">
+  <meta content="http://i67.tinypic.com/2ur1but.png" property="og:image">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,500" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,900" rel="stylesheet">
+  <link href="website.css" rel="stylesheet" type="text/css">
+  <link href="img/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="img/favicon.png" rel="icon" type="image/x-icon">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="website.css" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <!--NAVIGATION BAR-->
+  <div id="header">
+    <div class="logo">
+      <a href="index.html"><span class="font1">TAYLOR</span><span class="font2">JOHNSTON</span></a>
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+        <li>
+          <a href="about.html">About</a>
+        </li>
+        <li>
+          <a href="resume.html">Résumé</a>
+        </li>
+        <li>
+          <a href="portfolio.html">Portfolio</a>
+        </li>
+        <li>
+          <a href="contact.html">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <!--END OF NAVIGATION BAR-->
+  <!--PORTFOLIO-->
+  <div class="main">
+    <div id="myBtnContainer">
+      <button class="btn" onclick="filterSelection('all')">Show all</button>
+      <button class="btn" onclick="filterSelection('writing')">Writing</button>
+      <button class="btn" onclick="filterSelection('web')">Web Design/Development</button>
+      <button class="btn" onclick="filterSelection('dataviz')">Data/Interactives</button>
+      <button class="btn" onclick="filterSelection('illustration')">Illustration</button>
+      <button class="btn" onclick="filterSelection('print')">Print Design</button>
+    </div>
+    <!-- Control buttons -->
+ <div class="row">
+      <div class="column dataviz">
+        <div class="content">
+          <a href="http://projects.thepostathens.com/SpecialProjects/ohio-university-athens-crimes-2019-2020/index.html" target="_blank"><img src="img/crimes-01.png" alt="ou athens crimes" style="width:99.8%"></a>
+          <h4>Mapping crimes on OU’s campus and in Athens</h4>
+        </div>
       </div>
-      <!--END OF NAVIGATION BAR-->
-      <!--CAROUSEL-->
-      <h1 class="work">Recent Work</h1>
-      <!-- Slideshow container -->
-      <div class="slideshow-container">
-         <!-- Full-width images with number and caption text -->
-         <div class="mySlides fade">
-            <div class="numbertext">1 / 3</div>
-            <img src="img/bedbugs-01.png" alt="bedbugs" style="width:100%">
-         </div>
-         <div class="mySlides fade">
-            <div class="numbertext">2 / 3</div>
-            <img src="img/schoonover-01.png" alt="schoonover" style="width:100%">
-         </div>
-         <div class="mySlides fade">
-            <div class="numbertext">3 / 3</div>
-            <img src="img/dataviz-01.png" alt="heartrates" style="width:100%">
-         </div>
-         <!-- Next and previous buttons -->
-         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-         <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      <div class="column dataviz">
+        <div class="content">
+          <a href="https://interactives.dallasnews.com/2019/dallas-digital-divide/" target="_blank"><img src="img/broadband-01.png" alt="dallas broadband" style="width:99.8%"></a>
+          <h4>Dallas News: Dallas’ digital haves and have-nots</h4>
+        </div>
       </div>
-      <br>
-      <!-- The dots/circles -->
-      <div style="text-align:center">
-         <span class="dot" onclick="currentSlide(1)"></span> 
-         <span class="dot" onclick="currentSlide(2)"></span> 
-         <span class="dot" onclick="currentSlide(3)"></span> 
+      <div class="column writing dataviz">
+        <div class="content">
+          <a href="https://www.dallasnews.com/news/crime/2019/07/22/19th-alleged-victim-of-serial-murder-suspect-billy-chemirmir-named-in-suit-against-senior-complex/" target="_blank"><img src="img/pools-01.png" alt="dallas pools"
+              style="width:99.8%"></a>
+          <h4>Dallas News: As Dallas revives public pools, some neighborhoods are left behind</h4>
+        </div>
       </div>
-      <!--END OF CAROUSEL-->
-      <!--PORTFOLIO-->
-      <div class="main">
-         <div id="myBtnContainer">
-            <button class="btn" onclick="filterSelection('all')"> Show all</button>
-            <button class="btn" onclick="filterSelection('writing')"> Writing</button>
-            <button class="btn" onclick="filterSelection('web')"> Web Design/Development</button>
-            <button class="btn" onclick="filterSelection('illustration')"> Illustration</button>
-            <button class="btn" onclick="filterSelection('print')"> Print Design</button>
-         </div>
-         <!-- Control buttons -->
-         <div class="row">
-            <div class="column print">
-               <div class="content">
-                  <a href="img/johnston_dataviz_final.pdf" target="_blank"><img src="img/dataviz-01.png" alt="heart rates" style="width:99.8%"></a>
-                  <h4>Infographic: Heart Rates of a College Student</h4>
-               </div>
-            </div>
-            <div class="column print">
-               <div class="content">
-                  <a href="img/makeitreal_johnston_final.pdf" target="_blank"><img src="img/makeitreal-01.png" alt="heartrates" style="width:99.8%"></a>
-                  <h4>Infographic: Where do OU students come from?</h4>
-               </div>
-            </div>
-            <div class="column print">
-               <div class="content">
-                  <a href="img/johnston_project2_revised_final.pdf" target="_blank"><img src="img/schoonover-01.png" alt="schoonover" style="width:99.8%"></a>
-                  <h4>Infographic: Inside Schoonover Center at Ohio University</h4>
-               </div>
-            </div>
-            <div class="column writing web illustration">
-               <div class="content">
-                  <a href="http://projects.thepostathens.com/SpecialProjects/bed-bugs-ohio-university-ehs/index.html" target="_blank"><img src="img/bedbugs-01.png" alt="bedbugs" style="width:99.8%"></a>
-                  <h4>Ohio University sees 28 bedbug cases in one year</h4>
-               </div>
-            </div>
-            <div class="column writing web illustration">
-               <div class="content">
-                  <a href="http://projects.thepostathens.com/SpecialProjects/duane-nellis-ou-purchasing-card/" target="_blank"><img src="img/pcard-01.png" alt="Duane Nellis Purchasing Card" style="width:99.8%"></a>
-                  <h4>How OU President Duane Nellis university credit card in first year</h4>
-               </div>
-            </div>
-            <div class="column writing web">
-               <div class="content">
-                  <a href="https://j3140hbt.wordpress.com/" target="_blank"><img src="img/teammodule-01.png" alt="Duane Nellis Purchasing Card" style="width:99.8%"></a>
-                  <h4>Team Module Project for Online Journalism Fundamentals</h4>
-               </div>
-            </div>
-            <div class="column writing web">
-               <div class="content">
-                  <a href="http://projects.thepostathens.com/SpecialProjects/bounded-by-history-ou-alden-archives/index.html" target="_blank"><img src="img/archives-01.png" alt="Alden Library Archives" style="width:99.8%"></a>
-                  <h4>Alden Library stores the university’s history as it grows</h4>
-               </div>
-            </div>
-            <div class="column writing illustration web">
-               <div class="content">
-                  <a href="http://projects.thepostathens.com/SpecialProjects/homecoming-2018/alumni-residences-ou.html" target="_blank"><img src="img/alumni-01.png" alt="Alumni Residences" style="width:100%"></a>
-                  <h4>A look at where Ohio University alumni reside</h4>
-               </div>
-            </div>
-            <div class="column writing illustration">
-               <div class="content">
-                  <a href="https://www.thepostathens.com/article/2018/10/campus-cameras-ohio-university-security" target="_blank"><img src="img/campuscameras-01.png" alt="Campus Cameras" style="width:100%"></a>
-                  <h4>More cameras to be installed on Ohio University’s campus</h4>
-               </div>
-            </div>
-            <div class="column writing illustration">
-               <div class="content">
-                  <a href="https://www.thepostathens.com/article/2018/09/residence-halls-dorms-work-orders-ohio-university" target="_blank"><img src="img/workorders.png" alt="Work Orders" style="width:100%"></a>
-                  <h4>Work orders pile up for some Ohio University residence halls more than others</h4>
-               </div>
-            </div>
-            <div class="column writing web illustration">
-               <div class="content">
-                  <a href="http://projects.thepostathens.com/SpecialProjects/welcome-back-2018/university-composting-ohio-mac-schools.html" target="_blank"><img src="img/composting-01.png" alt="Composting" style="width:100%"></a>
-                  <h4>See how OU's composting initiatives adds up to other universities in the state</h4>
-               </div>
-            </div>
-            <div class="column web">
-               <div class="content">
-                  <a href="https://projects.newsday.com/lifestyle/family/words-of-wisdom-from-li-kindergartners/" target="_blank"><img src="img/kindergarten-01.png" alt="Kindergarten Advice" style="width:100%"></a>
-                  <h4>Newsday interviewed kindergarten graduates to ask advice they would give</h4>
-               </div>
-            </div>
-            <div class="column writing">
-               <div class="content">
-                  <a href="https://www.thepostathens.com/article/2018/06/top-salaries-frank-solich-saul-phillips-ohio-university" target="_blank"><img src="img/ousalaries-01.png" alt="Salaries" style="width:100%"></a>
-                  <h4>Men’s basketball & football coaches earn highest salaries</h4>
-               </div>
-            </div>
-            <div class="column writing web">
-               <div class="content">
-                  <a href="http://projects.thepostathens.com/SpecialProjects/bar-violations-ohio-mac-schools/index.html" target="_blank"><img src="img/barviolations.png" alt="Bar Violations" style="width:100%"></a>
-                  <h4>Bars near OU lead in bar violations compared to MAC schools in Ohio</h4>
-               </div>
-            </div>
-            <div class="column writing web">
-               <div class="content">
-                  <a href="http://projects.thepostathens.com/SpecialProjects/the-food-edition/paradoxical-eats-golden-age-restaurants.html" target="_blank"><img src="img/restaurants.png" alt="Athens Restaurants" style="width:100%"></a>
-                  <h4>Restaurants are struggling and thriving all at once</h4>
-               </div>
-            </div>
-            <div class="column web illustration">
-               <div class="content">
-                  <a href="http://projects.thepostathens.com/SpecialProjects/the-food-edition/landing.html" target="_blank"><img src="img/foodedition-01.png" alt="Food Edition" style="width:100%"></a>
-                  <h4>Athens cultivates local restaurants residents have come to know</h4>
-               </div>
-            </div>
-            <div class="column writing web illustration">
-               <div class="content">
-                  <a href="http://projects.thepostathens.com/SpecialProjects/a-handful-of-expression-calligraphy/" target="_blank"><img src="img/calligraphy.png" alt="Calligraphy" style="width:100%"></a>
-                  <h4>New technologies allow the artform of calligraphy to continue</h4>
-               </div>
-            </div>
-            <div class="column writing">
-               <div class="content">
-                  <a href="https://www.thepostathens.com/article/2017/11/ou-student-background-columbus-cleveland-adams-paulding" target="_blank"><img src="img/counties.png" alt="Counties" style="width:100%"></a>
-                  <h4>What Ohio counties do most OU students come from?</h4>
-               </div>
-            </div>
-            <div class="column writing web">
-               <div class="content">
-                  <a href="http://projects.thepostathens.com/SpecialProjects/disappearing-discourse/index.html" target="_blank"><img src="img/languages.png" alt="Languages" style="width:100%"></a>
-                  <h4>Language course enrollment declines at the college level</h4>
-               </div>
-            </div>
-            <div class="column web">
-               <div class="content">
-                  <a href="http://projects.thepostathens.com/SpecialProjects/homecoming-2017/intro.html" target="_blank"><img src="img/homecoming-01.png" alt="Homecoming 2017" style="width:100%"></a>
-                  <h4>Stories about traditions, the game and everything in between</h4>
-               </div>
-            </div>
-            <div class="column writing">
-               <div class="content">
-                  <a href="https://www.thepostathens.com/article/2017/09/twitter-increases-the-character-limit-of-tweets-for-some-users" target="_blank"><img src="img/twitter-01.png" alt="Twitter Char" style="width:100%"></a>
-                  <h4>Twitter increases the character limit of tweets for some users</h4>
-               </div>
-            </div>
-            <div class="column web writing">
-               <div class="content">
-                  <a href="http://projects.thepostathens.com/SpecialProjects/nellis-edition/serving-students-and-faculty.html" target="_blank"><img src="img/nellispm-01.png" alt="Nellis" style="width:100%"></a>
-                  <h4>Nellis serves his faculty and students across the map</h4>
-               </div>
-            </div>
-            <div class="column writing">
-               <div class="content">
-                  <a href="https://www.ohiomagazine.com/arts/article/cincinnati-s-music-hall-reopens" target="_blank"><img src="img/musichall-01.png" alt="Music Hall" style="width:100%"></a>
-                  <h4>Cincinnati’s Music Hall reopens after 18 months of renovations</h4>
-               </div>
-            </div>
-            <div class="column writing">
-               <div class="content">
-                  <a href="https://www.ohiomagazine.com/arts/article/a-garden-of-wonders-in-toledo" target="_blank"><img src="img/zim-01.png" alt="Zimbabwe Sculpture" style="width:100%"></a>
-                  <h4>The Toledo Botanical Garden hosts an exhibition of sculptures </h4>
-               </div>
-            </div>
-            <div class="column web">
-               <div class="content">
-                  <a href="http://projects.thepostathens.com/SpecialProjects/the-virtual-healer/" target="_blank"><img src="img/vr-01.png" alt="VR" style="width:100%"></a>
-                  <h4>Virtual reality allows  immersive learning in the medical field</h4>
-               </div>
-            </div>
-            <div class="column web">
-               <div class="content">
-                  <a href="http://projects.thepostathens.com/SpecialProjects/sexual-feeling/" target="_blank"><img src="img/sexinmusic-01.png" alt="Sex in Music" style="width:100%"></a>
-                  <h4>Society has ditched the traditional love song for sex</h4>
-               </div>
-            </div>
-            <div class="column web">
-               <div class="content">
-                  <a href="http://projects.thepostathens.com/SpecialProjects/down-the-middle/index.html" target="_blank"><img src="img/map-01.png" alt="Divided Worlds" style="width:100%"></a>
-                  <h4>Latino students reveal divided identities in two worlds</h4>
-               </div>
-            </div>
-            <div class="column web">
-               <div class="content">
-                  <a href="http://projects.thepostathens.com/SpecialProjects/social-sharing/index.html" target="_blank"><img src="img/social-01.png" alt="Social Sharing" style="width:100%"></a>
-                  <h4>Social media has consumed everyday life</h4>
-               </div>
-            </div>
-            <div class="column print">
-               <div class="content">
-                  <a href="img/candlesinfographic(FINALFINAL).pdf" target="_blank"><img src="img/candles-01.png" alt="How to Candles" style="width:100%"></a>
-                  <h4>Infographic: How to make candles step by step</h4>
-               </div>
-            </div>
-            <div class="column print">
-               <div class="content">
-                  <a href="img/1115_cookbook_johnston%20copy.pdf" target="_blank"><img src="img/cookbook-01.png" alt="Cookbook" style="width:100%"></a>
-                  <h4>The Gloriously Gluten-Free Cookbook (with recipes)</h4>
-               </div>
-            </div>
-            <div class="column print">
-               <div class="content">
-                  <a href="img/1115_exercise2_johnston%20copy.pdf" target="_blank"><img src="img/boats-01.png" alt="Page laYOUT" style="width:100%"></a>
-                  <h4>Visit Port Hadlock this summer to experience life near the shore</h4>
-               </div>
-            </div>
-            <div class="column print">
-               <div class="content">
-                  <a href="img/johnston_composite%20copy.pdf" target="_blank"><img src="img/letterforms-01.png" alt="Letterforms" style="width:100%"></a>
-                  <h4>Understanding the unique characteristics of letterforms</h4>
-               </div>
-            </div>
-            <div class="column print">
-               <div class="content">
-                  <a href="img/1115_typoposter_johnston%20copy.pdf" target="_blank"><img src="img/walbaum-01.png" alt="Font History" style="width:100%"></a>
-                  <h4>History of the modern German font Walbaum</h4>
-               </div>
-            </div>
-            <div class="column web">
-               <div class="content">
-                  <a href="img/final_redesign_johnston%20copy.pdf" target="_blank"><img src="img/redesign-01.png" alt="UX Redesign" style="width:100%"></a>
-                  <h4>UX redesign of website for Chuppa's Marketplace</h4>
-               </div>
-            </div>
-            <div class="column print">
-               <div class="content">
-                  <a href="https://www.behance.net/gallery/63827493/2019-Monthly-Calendar" target="_blank"><img src="img/calendar-01.png" alt="Calendar" style="width:100%"></a>
-                  <h4>Design of monthly calendar for the year of 2019</h4>
-               </div>
-            </div>
-            <div class="column web">
-               <div class="content">
-                  <a href="https://invis.io/G7N05GFMN9A" target="_blank"><img src="img/breakingnews-01.png" alt="Banners" style="width:100%"></a>
-                  <h4>Breaking news banners for Newsday's website</h4>
-               </div>
-            </div>
-            <div class="column web">
-               <div class="content">
-                  <a href="https://invis.io/6GMT0RQXN57#/309229695_Mobile_Steppers" target="_blank"><img src="img/stepper-01.png" alt="Steppers" style="width:100%"></a>
-                  <h4>Stepper templates for Newsday mobile articles</h4>
-               </div>
-            </div>
-         </div>
+
+      <div class="column dataviz">
+        <div class="content">
+          <a href="https://www.dallasnews.com/news/crime/2019/07/22/19th-alleged-victim-of-serial-murder-suspect-billy-chemirmir-named-in-suit-against-senior-complex/" target="_blank"><img src="img/chemirmir-01.png" alt="Chemirmir"
+              style="width:99.8%"></a>
+          <h4>Dallas News: Timeline of the Billy Chemirmir case</h4>
+        </div>
       </div>
-      <!--FOOTER-->
-      <div class="footer">
-         <p>©2018 Copyright Taylor Johnston</p>
+        <div class="column writing web illustration">
+          <div class="content">
+            <a href="http://projects.thepostathens.com/SpecialProjects/a-modern-day-treasure-hunt/index.html" target="_blank"><img src="img/geocaching-01.png" alt="geocaching" style="width:99.8%"></a>
+            <h4>Geocaching provides small treasures hidden around town</h4>
+          </div>
+        </div>
+      <div class="column writing web">
+        <div class="content">
+          <a href="http://projects.thepostathens.com/SpecialProjects/science-edition/ridges-telescope-OU.html" target="_blank"><img src="img/telescope-01.png" alt="telescope" style="width:99.8%"></a>
+          <h4>Ohio University's telescope will serve a legacy for years to come</h4>
+        </div>
       </div>
-      <!--END OF FOOTER-->
-      <script>
-         $('#header').prepend('<div id="menu-icon"><span class="first"><\/span><span class="second"><\/span><span class="third"><\/span><\/div>');
-           
-           $("#menu-icon").on("click", function(){
-           $("nav").slideToggle();
-           $(this).toggleClass("active");
-         });
-      </script>
-      <!--JS FOR FILTERING-->
-      <script>
-         filterSelection("all")
-         function filterSelection(c) {
-           var x, i;
-           x = document.getElementsByClassName("column");
-           if (c == "all") c = "";
-           for (i = 0; i < x.length; i++) {
-             w3RemoveClass(x[i], "show");
-             if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
-           }
-         }
-         
-         function w3AddClass(element, name) {
-           var i, arr1, arr2;
-           arr1 = element.className.split(" ");
-           arr2 = name.split(" ");
-           for (i = 0; i < arr2.length; i++) {
-             if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
-           }
-         }
-         
-         function w3RemoveClass(element, name) {
-           var i, arr1, arr2;
-           arr1 = element.className.split(" ");
-           arr2 = name.split(" ");
-           for (i = 0; i < arr2.length; i++) {
-             while (arr1.indexOf(arr2[i]) > -1) {
-               arr1.splice(arr1.indexOf(arr2[i]), 1);     
-             }
-           }
-           element.className = arr1.join(" ");
-         }
-         
-         
-         // Add active class to the current button (highlight it)
-         var btnContainer = document.getElementById("myBtnContainer");
-         var btns = btnContainer.getElementsByClassName("btn");
-         for (var i = 0; i < btns.length; i++) {
-           btns[i].addEventListener("click", function(){
-             var current = document.getElementsByClassName("active");
-             current[0].className = current[0].className.replace(" active", "");
-             this.className += " active";
-           });
-         }
-      </script>
-      <!--JS FOR CAROUSEL-->
-      <script>
-         var slideIndex = 1;
-         showSlides(slideIndex);
-         
-         // Next/previous controls
-         function plusSlides(n) {
-         showSlides(slideIndex += n);
-         }
-         
-         // Thumbnail image controls
-         function currentSlide(n) {
-         showSlides(slideIndex = n);
-         }
-         
-         function showSlides(n) {
-         var i;
-         var slides = document.getElementsByClassName("mySlides");
-         var dots = document.getElementsByClassName("dot");
-         if (n > slides.length) {slideIndex = 1} 
-         if (n < 1) {slideIndex = slides.length}
-         for (i = 0; i < slides.length; i++) {
-         slides[i].style.display = "none"; 
-         }
-         for (i = 0; i < dots.length; i++) {
-         dots[i].className = dots[i].className.replace(" active", "");
-         }
-         slides[slideIndex-1].style.display = "block"; 
-         dots[slideIndex-1].className += " active";
-         }
-      </script>
-   </body>
+
+
+      <div class="column writing dataviz">
+        <div class="content">
+          <a href="https://www.thepostathens.com/article/2019/02/ping-swipes-increase" target="_blank"><img src="img/ping-01.png" alt="ping swipes" style="width:99.8%"></a>
+          <h4>More students swipe into Ping at start of semesters</h4>
+        </div>
+      </div>
+      <div class="column writing dataviz">
+        <div class="content">
+          <a href="https://www.thepostathens.com/article/2019/02/energy-usage-increase-ohio-university" target="_blank"><img src="img/energy-use-01.png" alt="energy use" style="width:99.8%"></a>
+          <h4>Energy use at Ohio University has increased in past five years</h4>
+        </div>
+      </div>
+      <div class="column writing">
+        <div class="content">
+          <a href="https://www.thepostathens.com/article/2019/01/government-shutdown-athens-county" target="_blank"><img src="img/govt-closing.png" alt="govt closing" style="width:99.8%"></a>
+          <h4>Government shutdown affects Athens programs and local residents</h4>
+        </div>
+      </div>
+
+      <div class="column print">
+        <div class="content">
+          <a href="img/johnston_dataviz_final.pdf" target="_blank"><img src="img/heartrates-01.png" alt="heart rates" style="width:99.8%"></a>
+          <h4>Infographic: Heart Rates of a College Student</h4>
+        </div>
+      </div>
+      <div class="column print">
+        <div class="content">
+          <a href="img/makeitreal_johnston_final.pdf" target="_blank"><img src="img/makeitreal-01.png" alt="heartrates" style="width:99.8%"></a>
+          <h4>Infographic: Where do OU students come from?</h4>
+        </div>
+      </div>
+     <div class="column print">
+        <div class="content">
+          <a href="img/johnston_project2_revised_final.pdf" target="_blank"><img src="img/schoon-01.png" alt="schoonover" style="width:99.8%"></a>
+          <h4>Infographic: Inside Schoonover Center at OU</h4>
+        </div>
+      </div>
+
+
+      <div class="column writing web illustration dataviz">
+        <div class="content">
+          <a href="http://projects.thepostathens.com/SpecialProjects/bed-bugs-ohio-university-ehs/index.html" target="_blank"><img src="img/bedbugs-01.png" alt="bedbugs" style="width:99.8%"></a>
+          <h4>Ohio University sees 28 bedbug cases in one year</h4>
+        </div>
+      </div>
+      <div class="column writing web illustration dataviz">
+        <div class="content">
+          <a href="http://projects.thepostathens.com/SpecialProjects/duane-nellis-ou-purchasing-card/" target="_blank"><img src="img/pcard-01.png" alt="Duane Nellis Purchasing Card" style="width:99.8%"></a>
+          <h4>How OU President Duane Nellis university credit card in first year</h4>
+        </div>
+      </div>
+      <div class="column writing web">
+        <div class="content">
+          <a href="http://projects.thepostathens.com/SpecialProjects/bounded-by-history-ou-alden-archives/index.html" target="_blank"><img src="img/archives-01.png" alt="Alden Library Archives" style="width:99.8%"></a>
+          <h4>Alden Library stores the university’s history as it grows</h4>
+        </div>
+      </div>
+
+
+      <div class="column writing illustration web dataviz">
+        <div class="content">
+          <a href="http://projects.thepostathens.com/SpecialProjects/homecoming-2018/alumni-residences-ou.html" target="_blank"><img src="img/alumni-01.png" alt="Alumni Residences" style="width:100%"></a>
+          <h4>A look at where Ohio University alumni reside</h4>
+        </div>
+      </div>
+      <div class="column writing illustration">
+        <div class="content">
+          <a href="https://www.thepostathens.com/article/2018/10/campus-cameras-ohio-university-security" target="_blank"><img src="img/campuscameras-01.png" alt="Campus Cameras" style="width:100%"></a>
+          <h4>More cameras to be installed on Ohio University’s campus</h4>
+        </div>
+      </div>
+      <div class="column writing illustration dataviz">
+        <div class="content">
+          <a href="https://www.thepostathens.com/article/2018/09/residence-halls-dorms-work-orders-ohio-university" target="_blank"><img src="img/workorders.png" alt="Work Orders" style="width:100%"></a>
+          <h4>Work orders pile up for some Ohio University residence halls more than others</h4>
+        </div>
+      </div>
+
+
+      <div class="column writing web illustration dataviz">
+        <div class="content">
+          <a href="http://projects.thepostathens.com/SpecialProjects/welcome-back-2018/university-composting-ohio-mac-schools.html" target="_blank"><img src="img/composting-01.png" alt="Composting" style="width:100%"></a>
+          <h4>See how OU's composting initiatives adds up to other universities in the state</h4>
+        </div>
+      </div>
+      <div class="column web">
+        <div class="content">
+          <a href="https://projects.newsday.com/lifestyle/family/words-of-wisdom-from-li-kindergartners/" target="_blank"><img src="img/kindergarten-01.png" alt="Kindergarten Advice" style="width:100%"></a>
+          <h4>Newsday interviewed kindergarten graduates to ask advice they would give</h4>
+        </div>
+      </div>
+      <div class="column writing">
+        <div class="content">
+          <a href="https://www.thepostathens.com/article/2018/06/top-salaries-frank-solich-saul-phillips-ohio-university" target="_blank"><img src="img/ousalaries-01.png" alt="Salaries" style="width:100%"></a>
+          <h4>Men’s basketball & football coaches earn highest salaries</h4>
+        </div>
+      </div>
+
+
+      <div class="column writing web dataviz">
+        <div class="content">
+          <a href="http://projects.thepostathens.com/SpecialProjects/bar-violations-ohio-mac-schools/index.html" target="_blank"><img src="img/barviolations.png" alt="Bar Violations" style="width:100%"></a>
+          <h4>Bars near OU lead in bar violations compared to MAC schools in Ohio</h4>
+        </div>
+      </div>
+      <div class="column writing web">
+        <div class="content">
+          <a href="http://projects.thepostathens.com/SpecialProjects/the-food-edition/paradoxical-eats-golden-age-restaurants.html" target="_blank"><img src="img/restaurants.png" alt="Athens Restaurants" style="width:100%"></a>
+          <h4>Restaurants are struggling and thriving all at once</h4>
+        </div>
+      </div>
+      <div class="column web illustration">
+        <div class="content">
+          <a href="http://projects.thepostathens.com/SpecialProjects/the-food-edition/landing.html" target="_blank"><img src="img/foodedition-01.png" alt="Food Edition" style="width:100%"></a>
+          <h4>Athens cultivates local restaurants residents have come to know</h4>
+        </div>
+      </div>
+
+
+      <div class="column writing web illustration">
+        <div class="content">
+          <a href="http://projects.thepostathens.com/SpecialProjects/a-handful-of-expression-calligraphy/" target="_blank"><img src="img/calligraphy.png" alt="Calligraphy" style="width:100%"></a>
+          <h4>New technologies allow the artform of calligraphy to continue</h4>
+        </div>
+      </div>
+      <div class="column writing dataviz">
+        <div class="content">
+          <a href="https://www.thepostathens.com/article/2017/11/ou-student-background-columbus-cleveland-adams-paulding" target="_blank"><img src="img/counties.png" alt="Counties" style="width:100%"></a>
+          <h4>What Ohio counties do most OU students come from?</h4>
+        </div>
+      </div>
+      <div class="column writing web dataviz">
+        <div class="content">
+          <a href="http://projects.thepostathens.com/SpecialProjects/disappearing-discourse/index.html" target="_blank"><img src="img/languages.png" alt="Languages" style="width:100%"></a>
+          <h4>Language course enrollment declines at the college level</h4>
+        </div>
+      </div>
+
+
+      <div class="column web">
+        <div class="content">
+          <a href="http://projects.thepostathens.com/SpecialProjects/homecoming-2017/intro.html" target="_blank"><img src="img/homecoming-01.png" alt="Homecoming 2017" style="width:100%"></a>
+          <h4>Stories about traditions, the game and everything in between</h4>
+        </div>
+      </div>
+      <div class="column writing">
+        <div class="content">
+          <a href="https://www.thepostathens.com/article/2017/09/twitter-increases-the-character-limit-of-tweets-for-some-users" target="_blank"><img src="img/twitter-01.png" alt="Twitter Char" style="width:100%"></a>
+          <h4>Twitter increases the character limit of tweets for some users</h4>
+        </div>
+      </div>
+      <div class="column web writing">
+        <div class="content">
+          <a href="http://projects.thepostathens.com/SpecialProjects/nellis-edition/serving-students-and-faculty.html" target="_blank"><img src="img/nellispm-01.png" alt="Nellis" style="width:100%"></a>
+          <h4>Nellis serves his faculty and students across the map</h4>
+        </div>
+      </div>
+
+      <div class="column writing">
+        <div class="content">
+          <a href="https://www.ohiomagazine.com/arts/article/cincinnati-s-music-hall-reopens" target="_blank"><img src="img/musichall-01.png" alt="Music Hall" style="width:100%"></a>
+          <h4>Cincinnati’s Music Hall reopens after 18 months of renovations</h4>
+        </div>
+      </div>
+      <div class="column writing">
+        <div class="content">
+          <a href="https://www.ohiomagazine.com/arts/article/a-garden-of-wonders-in-toledo" target="_blank"><img src="img/zim-01.png" alt="Zimbabwe Sculpture" style="width:100%"></a>
+          <h4>The Toledo Botanical Garden hosts an exhibition of sculptures </h4>
+        </div>
+      </div>
+      <div class="column web">
+        <div class="content">
+          <a href="http://projects.thepostathens.com/SpecialProjects/the-virtual-healer/" target="_blank"><img src="img/vr-01.png" alt="VR" style="width:100%"></a>
+          <h4>Virtual reality allows immersive learning in the medical field</h4>
+        </div>
+    </div>
+
+
+      <div class="column web">
+        <div class="content">
+          <a href="http://projects.thepostathens.com/SpecialProjects/sexual-feeling/" target="_blank"><img src="img/sexinmusic-01.png" alt="Sex in Music" style="width:100%"></a>
+          <h4>Society has ditched the traditional love song for sex</h4>
+        </div>
+      </div>
+
+
+      <div class="column print">
+        <div class="content">
+          <a href="img/candlesinfographic(FINALFINAL).pdf" target="_blank"><img src="img/candles-01.png" alt="How to Candles" style="width:100%"></a>
+          <h4>Infographic: How to make candles step by step</h4>
+        </div>
+      </div>
+      <div class="column print">
+        <div class="content">
+          <a href="img/1115_cookbook_johnston%20copy.pdf" target="_blank"><img src="img/cookbook-01.png" alt="Cookbook" style="width:100%"></a>
+          <h4>The Gloriously Gluten-Free Cookbook (with recipes)</h4>
+        </div>
+      </div>
+      <div class="column print">
+        <div class="content">
+          <a href="img/1115_exercise2_johnston%20copy.pdf" target="_blank"><img src="img/boats-01.png" alt="Page laYOUT" style="width:100%"></a>
+          <h4>Visit Port Hadlock this summer to experience life near the shore</h4>
+        </div>
+      </div>
+
+
+    <div class="column print">
+      <div class="content">
+        <a href="img/johnston_composite%20copy.pdf" target="_blank"><img src="img/letterforms-01.png" alt="Letterforms" style="width:100%"></a>
+        <h4>Understanding the unique characteristics of letterforms</h4>
+      </div>
+    </div>
+    <div class="column print">
+      <div class="content">
+        <a href="img/1115_typoposter_johnston%20copy.pdf" target="_blank"><img src="img/walbaum-01.png" alt="Font History" style="width:100%"></a>
+        <h4>History of the modern German font Walbaum</h4>
+      </div>
+    </div>
+    <div class="column web">
+      <div class="content">
+        <a href="img/final_redesign_johnston%20copy.pdf" target="_blank"><img src="img/redesign-01.png" alt="UX Redesign" style="width:100%"></a>
+        <h4>UX redesign of website for Chuppa's Marketplace</h4>
+      </div>
+    </div>
+
+    <div class="column print">
+      <div class="content">
+        <a href="https://www.behance.net/gallery/63827493/2019-Monthly-Calendar" target="_blank"><img src="img/calendar-01.png" alt="Calendar" style="width:100%"></a>
+        <h4>Design of monthly calendar for the year of 2019</h4>
+      </div>
+    </div>
+    <div class="column web">
+      <div class="content">
+        <a href="https://invis.io/G7N05GFMN9A" target="_blank"><img src="img/breakingnews-01.png" alt="Banners" style="width:100%"></a>
+        <h4>Breaking news banners for Newsday's website</h4>
+      </div>
+    </div>
+    <div class="column web">
+      <div class="content">
+        <a href="https://invis.io/6GMT0RQXN57#/309229695_Mobile_Steppers" target="_blank"><img src="img/stepper-01.png" alt="Steppers" style="width:100%"></a>
+        <h4>Stepper templates for Newsday mobile articles</h4>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  <!--FOOTER-->
+  <div class="footer">
+    <p>©2018 Copyright Taylor Johnston</p>
+  </div>
+  <!--END OF FOOTER-->
+  <script>
+    $('#header').prepend('<div id="menu-icon"><span class="first"><\/span><span class="second"><\/span><span class="third"><\/span><\/div>');
+
+    $("#menu-icon").on("click", function() {
+      $("nav").slideToggle();
+      $(this).toggleClass("active");
+    });
+  </script>
+  <!--JS FOR FILTERING-->
+  <script>
+    filterSelection("all")
+
+    function filterSelection(c) {
+      var x, i;
+      x = document.getElementsByClassName("column");
+      if (c == "all") c = "";
+      for (i = 0; i < x.length; i++) {
+        w3RemoveClass(x[i], "show");
+        if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+      }
+    }
+
+    function w3AddClass(element, name) {
+      var i, arr1, arr2;
+      arr1 = element.className.split(" ");
+      arr2 = name.split(" ");
+      for (i = 0; i < arr2.length; i++) {
+        if (arr1.indexOf(arr2[i]) == -1) {
+          element.className += " " + arr2[i];
+        }
+      }
+    }
+
+    function w3RemoveClass(element, name) {
+      var i, arr1, arr2;
+      arr1 = element.className.split(" ");
+      arr2 = name.split(" ");
+      for (i = 0; i < arr2.length; i++) {
+        while (arr1.indexOf(arr2[i]) > -1) {
+          arr1.splice(arr1.indexOf(arr2[i]), 1);
+        }
+      }
+      element.className = arr1.join(" ");
+    }
+
+
+    // Add active class to the current button (highlight it)
+    var btnContainer = document.getElementById("myBtnContainer");
+    var btns = btnContainer.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function() {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+      });
+    }
+  </script>
+  <!--JS FOR CAROUSEL-->
+  <script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {
+        slideIndex = 1
+      }
+      if (n < 1) {
+        slideIndex = slides.length
+      }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
+  </script>
+</body>
+
 </html>
