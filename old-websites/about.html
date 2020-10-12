@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <title>Taylor Johnston</title>
+      <meta charset="utf-8">
+      <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+      <meta content="Taylor Johnston" property="og:title">
+      <meta content="A website that showcases work ranging from writing, web design and illustrations." property="og:description">
+      <meta content="http://i67.tinypic.com/2ur1but.png" property="og:image">
+      <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,500" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Poppins:100,900" rel="stylesheet">
+      <link href="website.css" rel="stylesheet" type="text/css">
+      <link href="img/favicon.png" rel="shortcut icon" type="image/x-icon">
+      <link href="img/favicon.png" rel="icon" type="image/x-icon">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+      <link href="website.css" rel="stylesheet" type="text/css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   </head>
+   <body>
+      <!--NAVIGATION BAR-->
+      <div id="header">
+         <div class="logo">
+            <a href="index.html"><span class="font1">TAYLOR</span><span class="font2">JOHNSTON</span></a>
+         </div>
+         <nav>
+            <ul>
+               <li>
+                  <a href="index.html">Home</a>
+               </li>
+               <li>
+                  <a href="about.html">About</a>
+               </li>
+               <li>
+                  <a href="resume.html">Résumé</a>
+               </li>
+               <li>
+                  <a href="portfolio.html">Portfolio</a>
+               </li>
+               <li>
+                  <a href="contact.html">Contact</a>
+               </li>
+            </ul>
+         </nav>
+      </div>
+      <!--END OF NAVIGATION BAR-->
+      <!--IMAGE-->
+      <img class="headshot" src="img/new-headshot.jpg" alt="Headshot of Taylor Johnston">
+      <!--TEXT-->
+      <div class="about_me">
+         <h1>Hey there!</h1>
+         <p>I'm Taylor Johnston, a senior at Ohio University majoring in Journalism and Visual Communication. In order to balance both of my majors, I keep myself busy by working at <i>The Post</i>, OU's student-run independent newspaper where I do a mixture of reporting, designing and developing. I also work for the university as a graphic designer where I make posters and flyers for the cafes and dining halls on campus.</p>
+         <p>When I am not sifting through spreadsheets or inspecting the code of a webpage, I am usually practicing my calligraphy, reading a book or doodling.</p>
+         <p>Check out my website to see what I have to offer!</p>
+      </div>
+      <!--FOOTER-->
+      <div class="footer">
+         <p>©2019 Copyright Taylor Johnston</p>
+      </div>
+      <!--END OF FOOTER-->
+      <script>
+         $('#header').prepend('<div id="menu-icon"><span class="first"><\/span><span class="second"><\/span><span class="third"><\/span><\/div>');
+
+           $("#menu-icon").on("click", function(){
+           $("nav").slideToggle();
+           $(this).toggleClass("active");
+         });
+      </script>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102043129-1"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+
+         gtag('config', 'UA-102043129-1');
+      </script>
+   </body>
+</html>
