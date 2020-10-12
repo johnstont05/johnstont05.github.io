@@ -80,6 +80,17 @@ i {
   border-style: solid;
   border-color: black;
 }
+
+.text-muted {
+  font-family: 'Roboto';
+  padding-left: 20px;
+  font-size: 16px;
+}
+
+.badge-color {
+  background-color: #034C4C;
+  color: #fff;
+}
 /* END OF CARD GRID */
 
 
