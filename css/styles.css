@@ -1,5 +1,12 @@
 body {
-  background-color: #e4e4e4;
+    opacity: 1;
+    transition: 1s opacity;
+    background-color: #e4e4e4;
+
+}
+body.fade-out {
+    opacity: 0;
+    transition: none;
 }
 
 a {
@@ -64,7 +71,6 @@ a:hover {
   margin-top: 0%;
   text-align: center;
   font-size: 18px;
-
 }
 
 .social-icons {
@@ -75,18 +81,20 @@ a:hover {
 i {
   margin-right: 10px;
 }
+
 /* END OF JUMBOTRON */
 
 /* CARD GRID */
 .card {
   box-shadow:
-  -webkit-transition: box-shadow 0.6s linear;
+    -webkit-transition: box-shadow 0.6s linear;
   transition: box-shadow 0.2s linear;
   margin: 0.5em;
 }
 
-.card:hover {   box-shadow: 0px 0px 0px 3px #212529;
- }
+.card:hover {
+  box-shadow: 0px 0px 0px 3px #212529;
+}
 
 .box-outline {
   border-style: solid;
@@ -96,7 +104,7 @@ i {
 .text-muted {
   font-family: 'Roboto';
   padding-left: 20px;
-  padding-bottom:2px;
+  padding-bottom: 2px;
   font-size: 16px;
 }
 
@@ -105,7 +113,5 @@ i {
   color: #fff;
 }
 /* END OF CARD GRID */
-
-
 /* MEDIA QUERIES */
 /* JUMBOTRON */
