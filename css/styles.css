@@ -75,9 +75,12 @@ i {
 }
 /* END OF JUMBOTRON */
 
-
-
-
+/* CARD GRID */
+.box-outline {
+  border-style: solid;
+  border-color: black;
+}
+/* END OF CARD GRID */
 
 
 /* MEDIA QUERIES */
