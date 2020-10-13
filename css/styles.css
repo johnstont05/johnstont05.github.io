@@ -2,8 +2,8 @@ body {
     opacity: 1;
     transition: 1s opacity;
     background-color: #e4e4e4;
-
 }
+
 body.fade-out {
     opacity: 0;
     transition: none;
