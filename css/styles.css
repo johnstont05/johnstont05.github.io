@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700);
+/* @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700);
 
 body {
   background: #EEEEF4;
@@ -23,23 +23,16 @@ p{font-weight:300;}
   margin:0;
 
 
-}
-
-
-
-
-
-
-/*
+} */
 body {
-    opacity: 1;
-    transition: 1s opacity;
-    background-color: #e4e4e4;
+  opacity: 1;
+  transition: 1s opacity;
+  background-color: #e4e4e4;
 }
 
 body.fade-out {
-    opacity: 0;
-    transition: none;
+  opacity: 0;
+  transition: none;
 }
 
 a {
@@ -47,8 +40,8 @@ a {
 }
 
 a:hover {
-  color: #034C4C;
-}
+  color: inherit;
+  text-decoration: none}
 
 .container {
   margin-right: auto;
@@ -67,6 +60,7 @@ a:hover {
   background-color: #e4e4e4;
   position: relative;
   top: 50%;
+  margin-bottom: 0.2rem;
 }
 
 .display-4 {
@@ -111,12 +105,15 @@ a:hover {
   index: 500;
 }
 
+.social-icons i:hover {
+  color: #034C4C;
+}
+
 i {
   margin-right: 10px;
 }
 
 /* END OF JUMBOTRON */
-
 /* CARD GRID */
 .card {
   box-shadow:
@@ -144,7 +141,16 @@ i {
 .badge-color {
   background-color: #034C4C;
   color: #fff;
-} */
+}
+
+.badge-pill {
+  border-radius: 5px;
+}
+
+.card-title {
+  font-size: 20px;
+}
+
 /* END OF CARD GRID */
 /* MEDIA QUERIES */
 /* JUMBOTRON */
