@@ -1,30 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700);
-
 body {
-  background: #EEEEF4;
-  color: teal;
-  font-family:Roboto;
-}
-
-h1{
-  font-weight:100;
-  font-size:27pt;
-  color:teal;
-}
-
-p{font-weight:300;}
-
-.warning-content {
-	position:absolute;
-  top:25%;
-  width:100%;
-  height:300px;
-  text-align:center;
-  margin:0;
-
-
-}
-/* body {
   opacity: 1;
   transition: 1s opacity;
   background-color: #e4e4e4;
@@ -40,14 +14,17 @@ a {
 }
 
 a:hover {
-  color: inherit;
-  text-decoration: none}
+  /* color: inherit; */
+  text-decoration: none;
+  color: #034C4C;
+}
 
 .container {
   margin-right: auto;
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
+  padding-bottom: 15px;
 }
 
 .row {
@@ -56,11 +33,14 @@ a:hover {
 } */
 
 /* JUMBOTRON */
-/* .jumbotron {
-  background-color: #e4e4e4;
+.jumbotron {
   position: relative;
   top: 50%;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0;
+}
+
+.jumbotron-bg {
+   background-color: transparent !important
 }
 
 .display-4 {
@@ -68,6 +48,7 @@ a:hover {
   font-size: 5vw;
   text-align: center;
   position: relative;
+  margin-bottom: 1rem;
 }
 
 #thin-text {
@@ -114,8 +95,7 @@ i {
 } */
 
 /* END OF JUMBOTRON */
-/* CARD GRID */
-/* .card {
+.card {
   box-shadow:
     -webkit-transition: box-shadow 0.6s linear;
   transition: box-shadow 0.2s linear;
@@ -124,6 +104,10 @@ i {
 
 .card:hover {
   box-shadow: 0px 0px 0px 3px #212529;
+}
+
+.card p {
+  margin-bottom: 0rem;
 }
 
 .box-outline {
@@ -149,8 +133,17 @@ i {
 
 .card-title {
   font-size: 20px;
-} */
+}
 
-/* END OF CARD GRID */
-/* MEDIA QUERIES */
-/* JUMBOTRON */
+.card-additional-text {
+  font-style: oblique;
+  font-size: 10px;
+  padding-top: 10px;
+}
+
+/* FOOTER */
+.page-footer {
+  background-color: #034C4C;
+  color: white;
+  font-family: 'Roboto';
+}
