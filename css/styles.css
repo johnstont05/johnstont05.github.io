@@ -2,7 +2,7 @@
 body {
   opacity: 1;
   transition: 1s opacity;
-  background-color: #e4e4e4;
+  background-color: #f5f5f5;
 }
 
 body.fade-out {
@@ -39,7 +39,10 @@ a:hover {
 .jumbotron {
   position: relative;
   top: 50%;
-  margin-bottom: 0;
+}
+
+.jumbo-size {
+  margin-bottom: -10px;
 }
 
 .jumbotron-bg {
@@ -51,7 +54,7 @@ a:hover {
   font-size: 5vw;
   text-align: center;
   position: relative;
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
 }
 
 #thin-text {
