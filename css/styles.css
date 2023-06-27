@@ -33,7 +33,18 @@ a:hover {
   margin-right: -15px;
 }
 
-*/
+/* NAVBAR */
+.navbar {
+  background-color: #034C4C;
+}
+
+span.navbar-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5vw;
+    color: white;
+    font-weight: 900;
+}
+
 
 /* JUMBOTRON */
 .jumbotron {
