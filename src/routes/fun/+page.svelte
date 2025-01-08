@@ -7,7 +7,9 @@
 </svelte:head>
 
 <div class="projectContainer">
-	<div class="projects">
+	This page is under construction 
+	
+	<!-- <div class="projects">
 		<h1>Fun</h1>
 		{#each projects as project}
 			<div class="project">
@@ -32,7 +34,7 @@
 				</a>
 			</div>
 		{/each}
-	</div>
+	</div> -->
 </div>
 
 <style>
