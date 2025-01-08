@@ -1,0 +1,10 @@
+{
+	"/": [
+		"src/routes/+page.ts"
+	],
+	"/about": [],
+	"/fun": [
+		"src/routes/fun/+page.ts"
+	],
+	"/work": []
+}
