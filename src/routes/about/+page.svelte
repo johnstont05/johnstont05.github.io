@@ -15,7 +15,7 @@
 				I'm a journalist with the focus of telling impactful stories at the intersection of data and
 				design.
 			</p>
-			<p>Currently, I work at CBS News as a <a href="https://www.cbsnews.com/team/taylor-johnston/" target="_blank">visual data journalist</a> on the data team.</p>
+			<p>Currently, I work at CBS News as a<a href="https://www.cbsnews.com/team/taylor-johnston/" target="_blank">visual data journalist</a> on the data team.</p>
 			<p>
 				Previously, I was a graphics reporter at Hearst Connecticut Media Group. I am also a
 				first-generation college student who graduated from Ohio University with degrees in
