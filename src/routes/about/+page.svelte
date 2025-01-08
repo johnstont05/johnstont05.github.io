@@ -4,7 +4,8 @@
 
 <div class="container">
 	<main>
-		<div class="about-image">
+		This page is under construction
+		<!-- <div class="about-image">
 			<div id="wrap" class="img-wrap">
 				<img src="src/lib/assets/johnston_headshot.jpg" alt="Taylor Johnston" />
 			</div>
@@ -15,7 +16,7 @@
 				I'm a journalist with the focus of telling impactful stories at the intersection of data and
 				design.
 			</p>
-			<p>Currently, I work at CBS News as a<a href="https://www.cbsnews.com/team/taylor-johnston/" target="_blank">visual data journalist</a> on the data team.</p>
+			<p>Currently, I work at CBS News as a <a href="https://www.cbsnews.com/team/taylor-johnston/" target="_blank">visual data journalist</a> on the data team.</p>
 			<p>
 				Previously, I was a graphics reporter at Hearst Connecticut Media Group. I am also a
 				first-generation college student who graduated from Ohio University with degrees in
@@ -26,7 +27,7 @@
 				for my Etsy shop, listening to an audiobook, or traveling to new places to collect pins.
 			</p>
 			<p>Find me @TF_Johnston / mail / github / linkedin</p>
-		</div>
+		</div> -->
 	</main>
 </div>
 
