@@ -6,7 +6,7 @@
   <main>
     <div class="about-image">
       <div id="wrap" class="img-wrap">
-        <img src="src/lib/assets/johnston_headshot.jpg" alt="Black and white headshot of Taylor Johnston." />
+        <img src="/johnston_headshot.jpg" alt="Black and white headshot of Taylor Johnston." />
       </div>
     </div>
     <div class="about-text">
