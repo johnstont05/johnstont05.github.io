@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   export let sheetName = "website-clips";
+  import List from "$lib/components/List.svelte";
 
   let items = [];
   export let featuredItems = [];
@@ -18,10 +19,23 @@
       description: row[1]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
       url: row[2]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
       imageUrl: row[3]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
+      type: row[4]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
+      contributedBy: row[5]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
+      toolsUsed: row[6]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
+      date: row[7]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
     }));
 
-    featuredItems = parsed.slice(0, 9);
-    items = parsed.slice(9);
+    console.log(parsed); // Log the parsed data
+
+    const cards = parsed.filter(
+      (item) => item.type?.trim().toLowerCase() === "card"
+    );
+    const lists = parsed.filter(
+      (item) => item.type?.trim().toLowerCase() === "list"
+    );
+
+    featuredItems = cards.slice(0, 9);
+    items = lists;
   }
 
   onMount(loadData);
@@ -34,26 +48,56 @@
         <img src={item.imageUrl} alt={item.title} />
         <h3>{item.title}</h3>
       </a>
-      <p class="description">{item.description}</p>
+      <!-- <p class="description">{item.description}</p> -->
     </div>
   {/each}
 </div>
 
-<!-- Slot in a separate component or display the list below -->
-<slot name="list" {items} />
+<div class="subhed">More work</div>
+
+<ul class="list">
+  {#each items as item}
+    <li>
+      <a href={item.url} target="_blank">{item.title}</a>
+      {#if item.date}
+        <span class="date">{item.date}</span>
+      {/if}
+    </li>
+  {/each}
+</ul>
 
 <style>
+  .subhed {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
   .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 1rem;
     margin-top: 50px;
+    margin-bottom: 1rem; /* Add this if not already present */
   }
 
   @media (max-width: 600px) {
     .grid {
       padding: 15px;
       grid-template-columns: 1fr;
+    }
+
+    .subhed {
+      margin: 20px;
+    }
+
+    .list {
+      margin: 20px;
+      line-height: 1.3;
+    }
+
+    span.date {
+      font-size: 0.8rem;
     }
   }
 
@@ -74,10 +118,11 @@
   }
 
   img {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-  }
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Makes image square */
+  object-fit: cover;   /* Ensures the image fills the square */
+  border-radius: 4px;
+}
 
   .card h3 {
     font-size: 1rem;
@@ -87,6 +132,7 @@
     position: relative;
     overflow: hidden;
     display: inline-block;
+    margin-bottom: 0;
   }
 
   .card h3::after {
@@ -115,8 +161,32 @@
     }
   }
 
-  .description {
+  /* .description {
     font-size: 0.75rem;
     color: #555;
+    margin-top: 0;
+    line-height: 1.3;
+  } */
+
+  /* List styles */
+  .list {
+    padding-left: 0;
+    list-style: none;
+    margin-top: 0; /* <-- Add this */
+  }
+
+  li {
+    margin-bottom: 1rem; /* Reduce if needed */
+  }
+
+  a {
+    font-weight: bold;
+    color: #000;
+    display: inline-block;
+  }
+
+  .date {
+    font-size: 0.875rem;
+    color: white;
   }
 </style>

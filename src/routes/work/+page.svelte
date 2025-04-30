@@ -3,10 +3,10 @@
   </script>
   
   <svelte:head>
-	<title>Taylor Johnston - Fun</title>
+	<title>Taylor Johnston - Work</title>
   </svelte:head>
   
-  <Cards sheetName="fun" />
+  <Cards sheetName="work" />
 
 
 
