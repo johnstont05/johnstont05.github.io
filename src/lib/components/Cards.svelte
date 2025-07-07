@@ -19,7 +19,9 @@
       url: row[2]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
       image: row[3]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
       type: row[4]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
-      additional: row[5]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
+      additional: row[5]
+        ?.replace(/^"|"$/g, "") // remove outer quotes
+        ?.replace(/""/g, '"'), // restore proper quotes inside <a> tag
       outlet: row[6]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
       tools: row[7]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
       date: row[8]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
@@ -43,14 +45,14 @@
 <div class="grid">
   {#each featuredItems as item}
     <div class="card">
-  <span class="tools-tag">{item.tools}</span>
+      <span class="tools-tag">{item.tools}</span>
 
       <a href={item.url} target="_blank">
         <img src={item.image} alt={item.title} />
         <h3>{item.title}</h3>
       </a>
-        <p class="description">{item.description}</p>
-<p class="additional">{@html item.additional}</p>        
+      <p class="description">{item.description}</p>
+      <p class="additional">{@html item.additional}</p>
     </div>
   {/each}
 </div>
@@ -72,7 +74,7 @@
   }
 
   .card {
-      position: relative; /* Add this line */
+    position: relative; /* Add this line */
 
     border: 3px solid #000000;
     background-color: white;
@@ -90,19 +92,19 @@
   }
 
   .tools-tag {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  background: #222;
-  color: #fff;
-  font-size: 0.75rem;
-  padding: 0.25em 0.7em;
-  font-weight: 600;
-  z-index: 2;
-  pointer-events: none;
-  letter-spacing: 0.03em;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: #222;
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 0.25em 0.7em;
+    font-weight: 600;
+    z-index: 2;
+    pointer-events: none;
+    letter-spacing: 0.03em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
 
   .description {
     font-size: 15px;
@@ -116,8 +118,18 @@
     color: #555;
     margin-top: 0.5rem;
     line-height: 1.3;
+    font-style: italic;
   }
 
+  :global(.additional a) {
+    color: #555;
+    text-decoration: underline;
+    /* font-weight: bold; */
+  }
+
+  :global(.additional a:hover) {
+    text-decoration: underline;
+  }
   img {
     width: 100%;
     aspect-ratio: 16 / 9; /* Makes image rectangular */

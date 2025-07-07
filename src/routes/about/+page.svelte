@@ -130,14 +130,11 @@
       align-items: center;
       text-align: center;
     }
-
-    .img-wrap {
-      /* margin: 0 auto 15px auto; */
-    }
-
     .about-text {
       width: 90%;
       text-align: left;
+      font-size: .9rem;
+      margin: auto;
     }
   }
 </style>

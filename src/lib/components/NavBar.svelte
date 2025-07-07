@@ -9,46 +9,30 @@
     {#each routes as route}
       <a
         class={`button ${segment === route.href ? "selected" : ""}`}
-        href={route.href}>{route.label}</a
+        href={route.href}
       >
+        {route.label}
+      </a>
     {/each}
   </div>
 </div>
+
 <div class="responsiveButtons buttons">
   {#each routes as route}
     <a
       class={`button ${segment === route.href ? "selected" : ""}`}
-      href={route.href}>{route.label}</a
+      href={route.href}
     >
+      {route.label}
+    </a>
   {/each}
 </div>
 
 <style>
-  .button:hover::after {
-    content: "";
-    background: #000;
-    display: block;
-    height: 3px;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-  }
-
-  .button.selected:after {
-    content: "";
-    background: #000;
-    display: block;
-    height: 3px;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-  }
-
   .innerContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* width: 100%; */
     max-width: 900px;
     box-sizing: border-box;
     margin: 0 auto;
@@ -74,17 +58,15 @@
   }
 
   .buttons {
-    display: none;
+    display: flex;
+    gap: 6px;
     justify-content: space-between;
     align-items: center;
     font-weight: 500;
   }
 
   .responsiveButtons {
-    /* margin-top: 20px; */
-    /* width: 100%; */
-    display: flex !important;
-    /* flex-direction: column; */
+    display: none;
   }
 
   .responsiveButtons .button {
@@ -93,21 +75,41 @@
     text-align: center;
   }
 
-  .buttons .button {
+  .buttons .button,
+  .responsiveButtons .button {
+    display: inline-block;
+    max-width: none;
+    width: auto;
+    text-align: left;
     padding: 0;
     cursor: pointer;
     transition: color 0.2s ease-in-out;
     text-decoration: none;
     position: relative;
-    margin: 10px;
+    margin: 20px;
     color: hsla(0, 0%, 100%, 0.4);
+  }
+
+  .button {
+    display: inline-block;
   }
 
   .button.selected {
     color: white;
   }
 
-  @media (min-width: 400px) {
+  .button:hover::after,
+  .button.selected::after {
+    content: "";
+    background: #000;
+    display: block;
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
+
+  @media (max-width: 600px) {
     .NavBar {
       padding: 20px 0;
       display: flex;
@@ -119,14 +121,12 @@
     }
 
     .buttons {
-      display: flex;
-    }
-    .buttons .button {
-      margin: 22px;
+      display: none !important;
     }
 
     .responsiveButtons {
-      display: none !important;
+      display: flex !important;
+      flex-wrap: wrap;
     }
   }
 </style>

@@ -128,7 +128,7 @@ const options = {
 		<title>Taylor Johnston - Data + Graphics Journalist</title>
 		<meta name="title" content="Taylor Johnston - Data + Graphics Journalist" />
 		<meta name="description" content="I'm a journalist with the focus of telling impactful stories at the intersection of data and design." />
-		` + head + '\n	</head>\n	<body>\n		<div id="svelte">' + body + "</div>\n	</body>\n</html>\n",
+		` + head + '\n	</head>\n	<body>\n		<div id="svelte">' + body + "</div>\n	</body>\n</html>\n\n<style>\n	body {\n		cursor: crosshair\n  \n}\n</style>",
     error: ({ status, message }) => '<!doctype html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<title>' + message + `</title>
 
 		<style>
@@ -200,7 +200,7 @@ const options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "1krxyxi"
+  version_hash: "osk3cu"
 };
 async function get_hooks() {
   let handle;
