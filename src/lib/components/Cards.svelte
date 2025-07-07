@@ -1,7 +1,6 @@
 <script>
   import { onMount } from "svelte";
   export let sheetName = "website-clips";
-  import List from "$lib/components/List.svelte";
 
   let items = [];
   export let featuredItems = [];
@@ -18,18 +17,18 @@
       title: row[0]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
       description: row[1]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
       url: row[2]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
-      imageUrl: row[3]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
+      image: row[3]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
       type: row[4]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
-      contributedBy: row[5]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
-      toolsUsed: row[6]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
-      date: row[7]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
+      additional: row[5]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
+      outlet: row[6]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
+      tools: row[7]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
+      date: row[8]?.replace(/&quot;/g, "").replace(/^"|"$/g, ""),
     }));
-
-    console.log(parsed); // Log the parsed data
 
     const cards = parsed.filter(
       (item) => item.type?.trim().toLowerCase() === "card"
     );
+
     const lists = parsed.filter(
       (item) => item.type?.trim().toLowerCase() === "list"
     );
@@ -44,45 +43,25 @@
 <div class="grid">
   {#each featuredItems as item}
     <div class="card">
+  <span class="tools-tag">{item.tools}</span>
+
       <a href={item.url} target="_blank">
-        <img src={item.imageUrl} alt={item.title} />
+        <img src={item.image} alt={item.title} />
         <h3>{item.title}</h3>
       </a>
-      <!-- <p class="description">{item.description}</p> -->
+        <p class="description">{item.description}</p>
+<p class="additional">{@html item.additional}</p>        
     </div>
   {/each}
 </div>
 
-<div class="subhed">More work</div>
-
-<ul class="list">
-  {#each items as item}
-    <li>
-      <a href={item.url} target="_blank">{item.title}</a>
-      {#if item.date}
-        <span class="date">{item.date}</span>
-      {/if}
-    </li>
-  {/each}
-</ul>
-
 <style>
-
-  .card {
-
-  }
-  .subhed {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
   .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     margin-top: 50px;
-    margin-bottom: 1rem; /* Add this if not already present */
+    margin-bottom: 1rem;
   }
 
   @media (max-width: 600px) {
@@ -90,22 +69,11 @@
       padding: 15px;
       grid-template-columns: 1fr;
     }
-
-    .subhed {
-      margin: 20px;
-    }
-
-    .list {
-      margin: 20px;
-      line-height: 1.3;
-    }
-
-    span.date {
-      font-size: 0.8rem;
-    }
   }
 
   .card {
+      position: relative; /* Add this line */
+
     border: 3px solid #000000;
     background-color: white;
     padding: 1rem;
@@ -121,15 +89,44 @@
     box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.2);
   }
 
-  img {
-  width: 100%;
-  aspect-ratio: 1 / 1; /* Makes image square */
-  object-fit: cover;   /* Ensures the image fills the square */
-  border-radius: 4px;
+  .tools-tag {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: #222;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 0.25em 0.7em;
+  font-weight: 600;
+  z-index: 2;
+  pointer-events: none;
+  letter-spacing: 0.03em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
+  .description {
+    font-size: 15px;
+    color: #000000;
+    margin-top: 0rem;
+    line-height: 1.3;
+  }
+
+  .additional {
+    font-size: 13px;
+    color: #555;
+    margin-top: 0.5rem;
+    line-height: 1.3;
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Makes image rectangular */
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
   .card h3 {
-    font-size: 1rem;
+    font-size: 16px;
     line-height: 1.3;
     text-decoration: none;
     color: black;
@@ -163,34 +160,5 @@
     to {
       left: 100%;
     }
-  }
-
-  /* .description {
-    font-size: 0.75rem;
-    color: #555;
-    margin-top: 0;
-    line-height: 1.3;
-  } */
-
-  /* List styles */
-  .list {
-    padding-left: 0;
-    list-style: none;
-    margin-top: 0; /* <-- Add this */
-  }
-
-  li {
-    margin-bottom: 1rem; /* Reduce if needed */
-  }
-
-  a {
-    font-weight: bold;
-    color: #000;
-    display: inline-block;
-  }
-
-  .date {
-    font-size: 0.875rem;
-    color: white;
   }
 </style>

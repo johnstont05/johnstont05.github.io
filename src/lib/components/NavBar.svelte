@@ -1,134 +1,132 @@
 <script lang="ts">
-	import routes from '$lib/NavRoutes';
-	let opened = false;
-	export let segment: string;
+  import routes from "$lib/NavRoutes";
+  let opened = false;
+  export let segment: string;
 </script>
 
-	<div class="innerContainer">
-		<div class="buttons">
-			{#each routes as route}
-				<a class={`button ${segment === route.href ? 'selected' : ''}`} href={route.href}
-					>{route.label}</a
-				>
-			{/each}
-		</div>
-	</div>
-	<div class="responsiveButtons buttons">
-		{#each routes as route}
-			<a class={`button ${segment === route.href ? 'selected' : ''}`} href={route.href}
-				>{route.label}</a
-			>
-		{/each}
-	</div>
+<div class="innerContainer">
+  <div class="buttons">
+    {#each routes as route}
+      <a
+        class={`button ${segment === route.href ? "selected" : ""}`}
+        href={route.href}>{route.label}</a
+      >
+    {/each}
+  </div>
+</div>
+<div class="responsiveButtons buttons">
+  {#each routes as route}
+    <a
+      class={`button ${segment === route.href ? "selected" : ""}`}
+      href={route.href}>{route.label}</a
+    >
+  {/each}
+</div>
 
 <style>
+  .button:hover::after {
+    content: "";
+    background: #000;
+    display: block;
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
 
+  .button.selected:after {
+    content: "";
+    background: #000;
+    display: block;
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
 
-	.button:hover::after {
-		content: '';
-		background: #000;
-		display: block;
-		height: 3px;
-		width: 100%;
-		position: absolute;
-		bottom: 0;
-	}
+  .innerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* width: 100%; */
+    max-width: 900px;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
 
-	.button.selected:after {
-		content: '';
-		background: #000;
-		display: block;
-		height: 3px;
-		width: 100%;
-		position: absolute;
-		bottom: 0;
-	}
+  .innerContainer :global(a) {
+    height: 30px;
+    color: white;
+  }
 
-	.innerContainer {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		/* width: 100%; */
-		max-width: 900px;
-		box-sizing: border-box;
-		margin: 0 auto;
-	}
+  .NavBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    box-sizing: border-box;
+    padding: 20px;
+    height: 80px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  }
 
-	.innerContainer :global(a) {
-		height: 30px;
-		color: white;
-	}
+  .buttons {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+  }
 
-	.NavBar {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		align-items: center;
-		width: 100%;
-		max-width: 900px;
-		box-sizing: border-box;
-		padding: 20px;
-		height: 80px;
-		overflow: hidden;
-		transition: height 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-	}
+  .responsiveButtons {
+    /* margin-top: 20px; */
+    /* width: 100%; */
+    display: flex !important;
+    /* flex-direction: column; */
+  }
 
-	.buttons {
-		display: none;
-		justify-content: space-between;
-		align-items: center;
-		font-weight: 500;
-	}
+  .responsiveButtons .button {
+    max-width: 100px;
+    width: 100%;
+    text-align: center;
+  }
 
-	.responsiveButtons {
-		/* margin-top: 20px; */
-		/* width: 100%; */
-		display: flex !important;
-		/* flex-direction: column; */
-	}
+  .buttons .button {
+    padding: 0;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+    text-decoration: none;
+    position: relative;
+    margin: 10px;
+    color: hsla(0, 0%, 100%, 0.4);
+  }
 
-	.responsiveButtons .button {
-		max-width: 100px;
-		width: 100%;
-		text-align: center;
-	}
+  .button.selected {
+    color: white;
+  }
 
-	.buttons .button {
-		padding: 0;
-		cursor: pointer;
-		transition: color 0.2s ease-in-out;
-		text-decoration: none;
-		position: relative;
-		margin: 10px;
-		color: hsla(0, 0%, 100%, 0.4);
-	}
+  @media (min-width: 400px) {
+    .NavBar {
+      padding: 20px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
-	.button.selected {
-		color: white;
-	}
+    .buttons {
+      display: flex;
+    }
+    .buttons .button {
+      margin: 22px;
+    }
 
-
-	@media (min-width: 400px) {
-		.NavBar {
-			padding: 20px 0;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			max-width: 900px;
-			margin: 0 auto;
-		}
-
-		.buttons {
-			display: flex;
-		}
-
-		.buttons .button {
-			/* margin: 20px; */
-		}
-
-		.responsiveButtons {
-			display: none !important;
-		}
-	}
+    .responsiveButtons {
+      display: none !important;
+    }
+  }
 </style>
