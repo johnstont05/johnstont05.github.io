@@ -132,7 +132,7 @@
     }
 
     .img-wrap {
-      margin: 0 auto 15px auto;
+      /* margin: 0 auto 15px auto; */
     }
 
     .about-text {

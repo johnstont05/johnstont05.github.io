@@ -6,13 +6,6 @@
 	<title>Taylor Johnston - Fun</title>
   </svelte:head>
   
-  <!-- <Cards sheetName="fun" /> -->
-
-  <p>This page is under construction</p>
+  <Cards sheetName="fun" />
 
 
-  <style>
-	p {
-  margin: auto;
-}
-</style>
