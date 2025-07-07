@@ -58,6 +58,7 @@
     max-width: 900px;
     display: flex;
     justify-content: center;
+    margin-top: 150px;
     /* padding: 20px; */
   }
 
