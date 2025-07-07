@@ -10,8 +10,5 @@
 
 
 
-  <style>
-	p {
-  margin: auto;
-}
+<style>
 </style>
