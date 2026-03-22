@@ -16,13 +16,13 @@
         intersection of data and design.
       </p>
       <p>
-        Currently, I work at CBS News as a <a
+        Previously, I worked at CBS News as a <a
           href="https://www.cbsnews.com/team/taylor-johnston/"
           target="_blank">visual data journalist</a
         > on the data team.
       </p>
       <p>
-        Previously, I was a <a
+        Before that, I was a <a
           href="https://www.ctinsider.com/author/taylor-johnston/"
           target="_blank">graphics reporter at Hearst Connecticut Media Group</a
         >. I am also a first-generation college student who graduated from Ohio
