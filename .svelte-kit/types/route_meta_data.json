@@ -1,10 +1,17 @@
 {
 	"/": [
-		"src/routes/+page.ts"
+		"src/routes/+page.ts",
+		"src/routes/+layout.server.js",
+		"src/routes/+layout.server.js"
 	],
-	"/about": [],
+	"/about": [
+		"src/routes/+layout.server.js"
+	],
 	"/fun": [
-		"src/routes/fun/+page.ts"
+		"src/routes/fun/+page.ts",
+		"src/routes/+layout.server.js"
 	],
-	"/work": []
+	"/work": [
+		"src/routes/+layout.server.js"
+	]
 }

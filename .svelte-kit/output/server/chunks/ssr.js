@@ -22,9 +22,6 @@ function subscribe(store, ...callbacks) {
   const unsub = store.subscribe(...callbacks);
   return unsub.unsubscribe ? () => unsub.unsubscribe() : unsub;
 }
-function null_to_empty(value) {
-  return value == null ? "" : value;
-}
 let current_component;
 function set_current_component(component) {
   current_component = component;
@@ -32,9 +29,6 @@ function set_current_component(component) {
 function get_current_component() {
   if (!current_component) throw new Error("Function called outside component initialization");
   return current_component;
-}
-function onDestroy(fn) {
-  get_current_component().$$.on_destroy.push(fn);
 }
 function setContext(key, context) {
   get_current_component().$$.context.set(key, context);
@@ -46,7 +40,7 @@ function getContext(key) {
 function ensure_array_like(array_like_or_iterator) {
   return array_like_or_iterator?.length !== void 0 ? array_like_or_iterator : Array.from(array_like_or_iterator);
 }
-const ATTR_REGEX = /[&"<]/g;
+const ATTR_REGEX = /[&"]/g;
 const CONTENT_REGEX = /[&<]/g;
 function escape(value, is_attr = false) {
   const str = String(value);
@@ -120,22 +114,20 @@ function create_ssr_component(fn) {
   };
 }
 function add_attribute(name, value, boolean) {
-  if (value == null || boolean) return "";
-  const assignment = `="${escape(value, true)}"`;
+  if (value == null || boolean && !value) return "";
+  const assignment = boolean && value === true ? "" : `="${escape(value, true)}"`;
   return ` ${name}${assignment}`;
 }
 export {
-  escape as a,
-  add_attribute as b,
+  setContext as a,
+  subscribe as b,
   create_ssr_component as c,
-  subscribe as d,
+  escape as d,
   each as e,
-  noop as f,
+  add_attribute as f,
   getContext as g,
-  safe_not_equal as h,
   missing_component as m,
-  null_to_empty as n,
-  onDestroy as o,
-  setContext as s,
+  noop as n,
+  safe_not_equal as s,
   validate_component as v
 };

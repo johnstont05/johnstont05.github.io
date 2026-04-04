@@ -1,95 +1,94 @@
 <script>
-  import { onDestroy } from "svelte";
-
-  let words = ["journalist", "designer", "developer", "data-driven"];
-  let currentWordIndex = 0;
-  let currentLetterIndex = 0;
-  let currentWord = "";
-  let deleting = false;
-
-  function updateTyping() {
-    if (deleting) {
-      if (currentLetterIndex >= 0) {
-        currentWord = words[currentWordIndex].substring(0, currentLetterIndex);
-        currentLetterIndex--;
-      } else {
-        deleting = false;
-        currentLetterIndex = 0;
-        currentWordIndex = (currentWordIndex + 1) % words.length;
-      }
-    } else {
-      if (currentLetterIndex <= words[currentWordIndex].length) {
-        currentWord = words[currentWordIndex].substring(0, currentLetterIndex);
-        currentLetterIndex++;
-      } else {
-        deleting = true;
-      }
-    }
-  }
-
-  const typingInterval = setInterval(updateTyping, 100);
-
-  // Clean up interval on component unmount
-  onDestroy(() => {
-    clearInterval(typingInterval);
-  });
+  import FeaturedItem from '$lib/components/FeaturedItem.svelte';
+  import JobBlock from '$lib/components/JobBlock.svelte';
+  import WallGrid from '$lib/components/WallGrid.svelte';
+  export let data;
 </script>
 
-<svelte:head>
-  <title>Taylor Johnston - Data + Graphics Journalist</title>
-</svelte:head>
+<svelte:head><title>Taylor Fay Johnston</title></svelte:head>
 
-<main>
-  <h1>i'm taylor</h1>
-  <div id="typing-div">
-    <span class="typed-text">{currentWord}</span>
-    <span class="cursor">|</span>
+<div class="hero">
+  <h1>hi, i'm taylor.</h1>
+  <p class="bio">I'm a data visualization journalist who turns complex data into clear, human stories — from the records request to the final interactive.</p>
+</div>
+
+<div class="section-head">
+  <span class="label">Featured</span>
+  <hr />
+</div>
+
+<div class="featured-list">
+  {#each data.featured as item, i}
+    <FeaturedItem {item} index={i} />
+  {/each}
+</div>
+
+<div class="section-head jobs-head">
+  <span class="label">By organization</span>
+  <hr />
+</div>
+
+<div class="jobs">
+  {#each data.jobs as job}
+    <JobBlock {job} />
+  {/each}
+</div>
+
+<div class="wall-section">
+  <div class="section-head" style="padding: 24px clamp(36px,5vw,72px) 20px; margin-top: 0">
+    <span class="label">Visual archive</span>
+    <hr />
   </div>
-</main>
+  <WallGrid clips={data.archive} />
+</div>
 
 <style>
-  main {
-    text-align: center;
-    padding: 0;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    height: calc(100vh - 80px - 88px);
-    justify-content: center;
-    align-items: center;
+  /* ── Hero ── */
+  .hero {
+    padding: 80px clamp(36px, 5vw, 80px) 72px;
+    border-bottom: 1px solid var(--color-border);
   }
-
   h1 {
-    font-size: 3.5rem;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: clamp(52px, 9vw, 110px);
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+  .bio {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: clamp(28px, 4.5vw, 52px);
+    line-height: 1.2;
+    color: var(--ink2);
+    max-width: 900px;
   }
 
-  #typing-div {
-    font-size: 1.5rem;
+  /* ── Section heads ── */
+  .section-head {
+    padding: 0 clamp(36px, 5vw, 80px);
+    margin: 56px 0 28px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
   }
-
-  .cursor {
-    animation: blink 1s infinite;
+  .label {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink3);
+    white-space: nowrap;
   }
+  hr { flex: 1; border: none; border-top: 1px solid var(--color-border); }
 
-  @keyframes blink {
-    0% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
+  .featured-list { padding: 0 clamp(36px, 5vw, 80px) 72px; display: flex; flex-direction: column; gap: 56px; }
 
-  @media (max-width: 600px) {
-    h1 {
-      font-size: 2rem;
-    }
+  .jobs-head { border-top: 1px solid var(--color-border); padding-top: 56px; }
+  .jobs { padding: 0 clamp(36px, 5vw, 80px) 72px; }
 
-    #typing-div {
-      font-size: 1rem;
-    }
-  }
+  .wall-section { border-top: 1px solid var(--color-border); }
+
 </style>
