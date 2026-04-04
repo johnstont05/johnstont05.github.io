@@ -1,132 +1,49 @@
-<script lang="ts">
-  import routes from "$lib/NavRoutes";
-  let opened = false;
-  export let segment: string;
+<script>
+  import { page } from '$app/stores';
 </script>
 
-<div class="innerContainer">
-  <div class="buttons">
-    {#each routes as route}
-      <a
-        class={`button ${segment === route.href ? "selected" : ""}`}
-        href={route.href}
-      >
-        {route.label}
-      </a>
-    {/each}
-  </div>
-</div>
-
-<div class="responsiveButtons buttons">
-  {#each routes as route}
-    <a
-      class={`button ${segment === route.href ? "selected" : ""}`}
-      href={route.href}
-    >
-      {route.label}
-    </a>
-  {/each}
-</div>
+<nav>
+  <a href="/" class="name">Taylor Johnston</a>
+  <ul>
+    <li><a href="/" class:active={$page.url.pathname === '/'}>Work</a></li>
+    <li><a href="/fun" class:active={$page.url.pathname === '/fun'}>Fun</a></li>
+    <li><a href="/about" class:active={$page.url.pathname === '/about'}>About</a></li>
+  </ul>
+</nav>
 
 <style>
-  .innerContainer {
+  nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 900px;
-    box-sizing: border-box;
-    margin: 0 auto;
+    padding: 20px 36px;
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 10;
   }
-
-  .innerContainer :global(a) {
-    height: 30px;
-    color: white;
-  }
-
-  .NavBar {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 900px;
-    box-sizing: border-box;
-    padding: 20px;
-    height: 80px;
-    overflow: hidden;
-    transition: height 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  }
-
-  .buttons {
-    display: flex;
-    gap: 6px;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 500;
-  }
-
-  .responsiveButtons {
-    display: none;
-  }
-
-  .responsiveButtons .button {
-    max-width: 100px;
-    width: 100%;
-    text-align: center;
-  }
-
-  .buttons .button,
-  .responsiveButtons .button {
-    display: inline-block;
-    max-width: none;
-    width: auto;
-    text-align: left;
-    padding: 0;
-    cursor: pointer;
-    transition: color 0.2s ease-in-out;
+  .name {
+    font-family: var(--display);
+    font-size: 18px;
     text-decoration: none;
-    position: relative;
-    margin: 20px;
-    color: hsla(0, 0%, 100%, 0.4);
+    color: var(--ink);
   }
-
-  .button {
-    display: inline-block;
+  ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
+  a {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink3);
+    text-decoration: none;
+    transition: color 0.15s;
   }
-
-  .button.selected {
-    color: white;
-  }
-
-  .button:hover::after,
-  .button.selected::after {
-    content: "";
-    background: #000;
-    display: block;
-    height: 3px;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-  }
-
-  @media (max-width: 600px) {
-    .NavBar {
-      padding: 20px 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .buttons {
-      display: none !important;
-    }
-
-    .responsiveButtons {
-      display: flex !important;
-      flex-wrap: wrap;
-    }
+  a:hover { color: var(--ink); }
+  a.active {
+    color: var(--ink);
+    border-bottom: 2px solid var(--teal);
+    padding-bottom: 1px;
   }
 </style>
