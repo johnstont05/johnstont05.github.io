@@ -2,7 +2,7 @@
   export let item;
   export let index;
 
-  const imgColors = ['#0d0d0d', '#0a7a76', '#1a1a1a'];
+  const imgColors = ['#071322', '#0D6862', '#9AA0F4', '#BBBE33', '#2F4E67'];
   const bgColor = imgColors[index % imgColors.length];
   $: featImg = item.featured_image_url || item.image_url;
 
@@ -12,6 +12,9 @@
     ['75%', '45%', '90%', '60%', '70%'],
   ];
   const lines = lineSets[index % lineSets.length];
+  $: tags = item.tag
+    ? item.tag.split(/\s*(?:,|\band\b|&)\s*/i).map((tag) => tag.trim()).filter(Boolean)
+    : [];
 </script>
 
 <div class="item" class:even={index % 2 === 1}>
@@ -29,7 +32,11 @@
     <p class="why">{item.featured_why}</p>
     <div class="meta">
       <span class="pub">{item.org} · {item.date}</span>
-      <span class="tag">{item.tag}</span>
+      <div class="tag-row">
+        {#each tags as tag}
+          <span class="tag">{tag}</span>
+        {/each}
+      </div>
     </div>
     <a href={item.url} target="_blank" class="link">View project ↗</a>
   </div>
@@ -45,17 +52,19 @@
   .fi-lines { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 16px; gap: 4px; }
   .fi-line { height: 2px; border-radius: 1px; background: rgba(255,255,255,0.3); }
 
-  .body { padding-top: 4px; display: flex; flex-direction: column; gap: 0; }
+  .body { padding-top: 8px; display: flex; flex-direction: column; }
 
+  /* Title — primary, leads the hierarchy */
   h2 {
-    font-family: var(--display);
-    font-size: 26px;
-    line-height: 1.2;
-    margin-bottom: 14px;
+    font-family: var(--sans);
+    font-size: 28px;
+    line-height: 1.15;
+    margin-bottom: 10px;
   }
   h2 a { color: var(--ink); text-decoration: none; }
   h2 a:hover { color: var(--teal); }
 
+  /* Description — flows from title, tight grouping */
   .why {
     font-size: 16px;
     line-height: 1.7;
@@ -63,29 +72,42 @@
     margin-bottom: 20px;
   }
 
+  /* Metadata — secondary info, grouped tightly, separated from content above */
   .meta {
     display: flex;
-    gap: 12px;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
+    flex-direction: column;
+    gap: 6px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-border);
+    margin-bottom: 20px;
   }
-  .pub { font-size: 16px; color: var(--ink3); }
+  .pub {
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    color: var(--gray);
+  }
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
   .tag {
     font-family: var(--sans);
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 11px;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: var(--ink3);
-    border: 1px solid var(--color-border-mid);
-    padding: 3px 10px;
+    color: #fff;
+    background: var(--black);
+    padding: 3px 7px;
+    border-radius: 3px;
+    white-space: nowrap;
   }
 
+  /* CTA — action item, stands apart */
   .link {
     font-family: var(--sans);
     font-weight: 700;
-    font-size: 16px;
+    font-size: 15px;
     color: var(--teal);
     text-decoration: none;
     border-bottom: 1px solid var(--teal);
@@ -94,4 +116,12 @@
     transition: opacity 0.15s;
   }
   .link:hover { opacity: 0.7; }
+
+  @media (max-width: 680px) {
+    .item, .item.even { grid-template-columns: 1fr; gap: 20px; }
+    .item.even .img { order: 0; }
+    .item.even .body { order: 1; }
+    h2 { font-size: 20px; }
+    .tag { font-size: 12px; }
+  }
 </style>

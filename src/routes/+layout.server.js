@@ -18,6 +18,13 @@ function apDate(str) {
   return str.replace(/[A-Za-z]+/g, (m) => AP_MONTHS[m.toLowerCase()] ?? m);
 }
 
+function dateValue(str) {
+  if (!str) return 0;
+  const normalized = apDate(str).replace(/\./g, '');
+  const timestamp = Date.parse(normalized);
+  return Number.isNaN(timestamp) ? 0 : timestamp;
+}
+
 /** @param {string} url */
 function normalizeImageUrl(url) {
   if (!url) return url;
@@ -69,7 +76,7 @@ export async function load({ fetch }) {
     date: apDate(c.date),
     image_url: normalizeImageUrl(c.image_url),
     featured_image_url: normalizeImageUrl(c.featured_image_url),
-  }));
+  })).sort((a, b) => dateValue(b.date) - dateValue(a.date));
   // @ts-ignore
   const fun = parseCSV(funCSV).map((f) => ({
     ...f,

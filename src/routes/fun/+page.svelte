@@ -28,7 +28,7 @@
     return defaultLayouts[i % defaultLayouts.length];
   }
 
-  const cardBgs = ['#0d0d0d', '#0a7a76', '#111', '#095c59', '#0d0d0d', '#0a7a76', '#111', '#095c59', '#0d0d0d'];
+  const cardBgs = ['#071322', '#0D6862', '#BBBE33', '#9AA0F4', '#2F4E67', '#071322', '#0D6862', '#BBBE33', '#9AA0F4'];
 
   // Scroll reveal action
   function reveal(node, delay = 0) {
@@ -53,79 +53,106 @@
   }
 </script>
 
-<svelte:head><title>Fun — Taylor Fay Johnston</title></svelte:head>
+<svelte:head><title>fun - taylor johnston</title></svelte:head>
 
-<div class="hero">
-  <p class="intro-line">Outside of work</p>
-  <h1>Things I make<br><em>for fun.</em></h1>
-  <p class="bio">Drawing, crocheting, little experiments, half-baked ideas that turned into something. No brief, no deadline — just making.</p>
-</div>
+<div class="page-container">
+  <div class="hero">
+    <h1>things i make <span style="color: var(--lime);">for fun</span>.</h1>
+    <p class="bio">Drawing, crocheting, little experiments, half-baked ideas that turned into something. No brief, no deadline — just making.</p>
+  </div>
 
-{#each sections as section, si}
+{#if sections.length === 0}
   <div class="section">
     <div class="section-head">
-      <span class="label">{section.label}</span>
+      <span class="label">Coming soon</span>
       <hr />
     </div>
-    {#if section.desc}
-      <p class="section-desc">{section.desc}</p>
-    {/if}
     <div class="grid">
-      {#each section.items as item, i}
-        {@const layout = getLayout(item, i)}
-        {@const bg = cardBgs[(si * 3 + i) % cardBgs.length]}
-        <a
-          href={item.url || '#'}
-          target={item.url ? '_blank' : undefined}
-          class="card"
+      {#each Array.from({length: 9}) as _, i}
+        {@const bg = cardBgs[i % cardBgs.length]}
+        {@const layout = defaultLayouts[i]}
+        <div
+          class="card placeholder"
           class:tall={layout === 'tall'}
           class:wide={layout === 'wide'}
-          style="background: {item.image_url ? `url('${item.image_url}') center/cover no-repeat` : bg}"
-          use:reveal={i % 3 * 120}
+          style="background: {bg}"
         >
-          {#if !item.image_url}
-            <div class="thumb-inner">{@html makeSVG(si * 3 + i)}</div>
-          {/if}
-          {#if item.annotation}
-            <div class="annotation">{item.annotation}</div>
-          {/if}
-          <div class="overlay">
-            <p class="card-title">{item.title}</p>
-            <p class="card-type">{item.type}</p>
-          </div>
-        </a>
+          <div class="thumb-inner">{@html makeSVG(i)}</div>
+          <div class="placeholder-label">coming soon</div>
+        </div>
       {/each}
     </div>
   </div>
-{/each}
+{:else}
+  {#each sections as section, si}
+    <div class="section">
+      <div class="section-head">
+        <span class="label">{section.label}</span>
+        <hr />
+      </div>
+      {#if section.desc}
+        <p class="section-desc">{section.desc}</p>
+      {/if}
+      <div class="grid">
+        {#each section.items as item, i}
+          {@const layout = getLayout(item, i)}
+          {@const bg = cardBgs[(si * 3 + i) % cardBgs.length]}
+          <a
+            href={item.url || '#'}
+            target={item.url ? '_blank' : undefined}
+            class="card"
+            class:tall={layout === 'tall'}
+            class:wide={layout === 'wide'}
+            style="background: {item.image_url ? `url('${item.image_url}') center/cover no-repeat` : bg}"
+            use:reveal={i % 3 * 120}
+          >
+            {#if !item.image_url}
+              <div class="thumb-inner">{@html makeSVG(si * 3 + i)}</div>
+            {/if}
+            {#if item.annotation}
+              <div class="annotation">{item.annotation}</div>
+            {/if}
+            <div class="overlay">
+              <p class="card-title">{item.title}</p>
+              <p class="card-type">{item.type}</p>
+            </div>
+          </a>
+        {/each}
+      </div>
+    </div>
+  {/each}
+{/if}
+</div>
 
 <style>
+  .page-container {
+    background: var(--light-lime);
+    min-height: 100vh;
+  }
+
   /* ── Hero ── */
   .hero {
-    padding: 80px 36px 72px;
+    padding: 80px clamp(36px, 5vw, 80px) 72px;
     border-bottom: 1px solid var(--color-border);
   }
-  .intro-line {
-    font-family: var(--sans);
-    font-style: italic;
-    font-size: 18px;
-    font-weight: 300;
-    color: var(--ink2);
-    margin-bottom: 4px;
-  }
+
   h1 {
     font-family: var(--display);
-    font-style: italic;
-    font-size: clamp(64px, 12vw, 140px);
-    line-height: 1.05;
-    color: var(--ink);
-    margin-bottom: 28px;
+    font-size: clamp(52px, 9vw, 110px);
+    font-weight: normal !important;
+    color: var(--black);
+    margin-bottom: 24px;
   }
-  h1 em { font-style: italic; color: var(--teal); }
-  .bio { font-size: 18px; line-height: 1.7; color: var(--ink2); max-width: 480px; }
+  .bio {
+    font-family: var(--sans);
+    font-size: 2rem;
+    line-height: 1.2;
+    color: var(--black);
+    max-width: 1100px;
+  }
 
   /* ── Sections ── */
-  .section { padding-top: 52px; margin-bottom: 72px; }
+  .section { padding-top: 52px; }
   .section-head {
     padding: 0 36px;
     margin-bottom: 24px;
@@ -139,10 +166,10 @@
     font-size: 16px;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--ink3);
+    color: var(--emerald);
     white-space: nowrap;
   }
-  hr { flex: 1; border: none; border-top: 1px solid var(--color-border); }
+  hr { flex: 1; border: none; border-top: 1px solid var(--horizon); }
   .section-desc {
     padding: 0 36px;
     font-size: 16px;
@@ -230,6 +257,19 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: rgba(255,255,255,0.5);
+  }
+
+  .placeholder { cursor: default; opacity: 0.5; transform: none; transition: none; }
+  .placeholder-label {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
   }
 
   @media (max-width: 700px) {

@@ -1,28 +1,53 @@
 /* src/app.css */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Caveat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Caveat:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+@font-face {
+  font-family: 'Brave Hunter';
+  src: url('/fonts/Brave-Hunter.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { overflow-x: hidden; }
 
 :root {
-  --display: 'Playfair Display', Georgia, serif;
-  --sans: 'Lato', system-ui, sans-serif;
-  --handwriting: 'Caveat', cursive;
+  --display: 'Brave Hunter', Arial, sans-serif;
+  --sans: 'Plus Jakarta Sans', system-ui, sans-serif;
 
-  --ink: #1a1a1a;
-  --ink2: #555;
-  --ink3: #999;
-  --bg: #faf9f6;
-  --bg2: #f0ede6;
-  --teal: #0a7a76;
-  --chartreuse: #c8f500;
-  --color-border: rgba(0,0,0,0.1);
-  --color-border-mid: rgba(0,0,0,0.18);
+  --teal: #188E85;
+  --light-teal: #DEEAE9;
+  --lime: #BBBE33;
+  --light-lime:#EFEFE1;
+  --lavender:#9AA0F4;
+  --light-lavender: #EBECF4;
+  --black: #1D1D1D;
+  --white: #FFFFFF;
+  --gray: #666666;
 }
+  
 
-body {
+  body {
   font-family: var(--sans);
-  background: var(--bg);
-  color: var(--ink);
+  color: var(--midnight);
   font-size: 16px;
   line-height: 1.65;
+  overflow-x: hidden;
 }
+
+a {
+  color: var(--emerald);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--midnight);
+  text-decoration: underline wavy;
+  text-underline-offset: 3px;
+}
+
+::selection {
+  background: rgba(187,190,51,0.22);
+  color: var(--midnight);
+}
+

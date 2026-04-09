@@ -26,24 +26,22 @@
  * ```
  */
 declare module '$env/static/private' {
-	export const NVM_RC_VERSION: string;
 	export const TERM_PROGRAM: string;
 	export const NODE: string;
 	export const INIT_CWD: string;
-	export const NVM_CD_FLAGS: string;
-	export const PYENV_ROOT: string;
 	export const TERM: string;
 	export const SHELL: string;
-	export const npm_config_metrics_registry: string;
+	export const HOMEBREW_REPOSITORY: string;
 	export const TMPDIR: string;
+	export const npm_config_global_prefix: string;
 	export const VSCODE_PYTHON_AUTOACTIVATE_GUARD: string;
 	export const TERM_PROGRAM_VERSION: string;
 	export const ZDOTDIR: string;
 	export const MallocNanoZone: string;
 	export const COLOR: string;
 	export const npm_config_noproxy: string;
+	export const npm_config_local_prefix: string;
 	export const ZSH: string;
-	export const NVM_DIR: string;
 	export const USER: string;
 	export const LS_COLORS: string;
 	export const COMMAND_MODE: string;
@@ -68,16 +66,19 @@ declare module '$env/static/private' {
 	export const EDITOR: string;
 	export const npm_package_name: string;
 	export const LANG: string;
+	export const PYTHONSTARTUP: string;
+	export const npm_config_npm_version: string;
 	export const VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
 	export const XPC_FLAGS: string;
 	export const npm_config_node_gyp: string;
 	export const npm_package_version: string;
 	export const XPC_SERVICE_NAME: string;
 	export const VSCODE_INJECTION: string;
-	export const PYENV_SHELL: string;
 	export const SHLVL: string;
 	export const HOME: string;
 	export const VSCODE_GIT_ASKPASS_MAIN: string;
+	export const PYTHON_BASIC_REPL: string;
+	export const HOMEBREW_PREFIX: string;
 	export const npm_config_cache: string;
 	export const LESS: string;
 	export const LOGNAME: string;
@@ -86,7 +87,9 @@ declare module '$env/static/private' {
 	export const npm_config_user_agent: string;
 	export const VSCODE_GIT_ASKPASS_NODE: string;
 	export const GIT_ASKPASS: string;
-	export const DISPLAY: string;
+	export const INFOPATH: string;
+	export const HOMEBREW_CELLAR: string;
+	export const OSLogRateLimit: string;
 	export const npm_node_execpath: string;
 	export const npm_config_prefix: string;
 	export const COLORTERM: string;
@@ -122,24 +125,22 @@ declare module '$env/static/public' {
  */
 declare module '$env/dynamic/private' {
 	export const env: {
-		NVM_RC_VERSION: string;
 		TERM_PROGRAM: string;
 		NODE: string;
 		INIT_CWD: string;
-		NVM_CD_FLAGS: string;
-		PYENV_ROOT: string;
 		TERM: string;
 		SHELL: string;
-		npm_config_metrics_registry: string;
+		HOMEBREW_REPOSITORY: string;
 		TMPDIR: string;
+		npm_config_global_prefix: string;
 		VSCODE_PYTHON_AUTOACTIVATE_GUARD: string;
 		TERM_PROGRAM_VERSION: string;
 		ZDOTDIR: string;
 		MallocNanoZone: string;
 		COLOR: string;
 		npm_config_noproxy: string;
+		npm_config_local_prefix: string;
 		ZSH: string;
-		NVM_DIR: string;
 		USER: string;
 		LS_COLORS: string;
 		COMMAND_MODE: string;
@@ -164,16 +165,19 @@ declare module '$env/dynamic/private' {
 		EDITOR: string;
 		npm_package_name: string;
 		LANG: string;
+		PYTHONSTARTUP: string;
+		npm_config_npm_version: string;
 		VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
 		XPC_FLAGS: string;
 		npm_config_node_gyp: string;
 		npm_package_version: string;
 		XPC_SERVICE_NAME: string;
 		VSCODE_INJECTION: string;
-		PYENV_SHELL: string;
 		SHLVL: string;
 		HOME: string;
 		VSCODE_GIT_ASKPASS_MAIN: string;
+		PYTHON_BASIC_REPL: string;
+		HOMEBREW_PREFIX: string;
 		npm_config_cache: string;
 		LESS: string;
 		LOGNAME: string;
@@ -182,7 +186,9 @@ declare module '$env/dynamic/private' {
 		npm_config_user_agent: string;
 		VSCODE_GIT_ASKPASS_NODE: string;
 		GIT_ASKPASS: string;
-		DISPLAY: string;
+		INFOPATH: string;
+		HOMEBREW_CELLAR: string;
+		OSLogRateLimit: string;
 		npm_node_execpath: string;
 		npm_config_prefix: string;
 		COLORTERM: string;
