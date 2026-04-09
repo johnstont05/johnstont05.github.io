@@ -15,17 +15,35 @@
   $: tags = item.tag
     ? item.tag.split(/\s*(?:,|\band\b|&)\s*/i).map((tag) => tag.trim()).filter(Boolean)
     : [];
+
+  /** @param {HTMLElement} node */
+  function reveal(node) {
+    node.style.opacity = '0';
+    node.style.transform = 'translateY(36px)';
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        node.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        node.style.opacity = '1';
+        node.style.transform = 'translateY(0)';
+        observer.unobserve(node);
+      }
+    }, { threshold: 0.08 });
+    observer.observe(node);
+    return { destroy: () => observer.disconnect() };
+  }
 </script>
 
-<div class="item" class:even={index % 2 === 1}>
-  <div class="img" style="background: {featImg ? `url('${featImg}') center/cover no-repeat` : bgColor}">
-    {#if !featImg}
-      <div class="fi-lines">
-        {#each lines as w, li}
-          <div class="fi-line" style="width:{w};{li % 2 === 1 ? 'opacity:0.4' : ''}"></div>
-        {/each}
-      </div>
-    {/if}
+<div class="item" class:even={index % 2 === 1} use:reveal>
+  <div class="img-wrap">
+    <div class="img" style="background: {featImg ? `url('${featImg}') center/cover no-repeat` : bgColor}">
+      {#if !featImg}
+        <div class="fi-lines">
+          {#each lines as w, li}
+            <div class="fi-line" style="width:{w};{li % 2 === 1 ? 'opacity:0.4' : ''}"></div>
+          {/each}
+        </div>
+      {/if}
+    </div>
   </div>
   <div class="body">
     <h2><a href={item.url} target="_blank">{item.title}</a></h2>
@@ -43,16 +61,53 @@
 </div>
 
 <style>
-  .item { display: grid; grid-template-columns: clamp(280px, 42%, 420px) 1fr; gap: 40px; align-items: start; }
+  .item { display: grid; grid-template-columns: clamp(280px, 42%, 420px) 1fr; gap: 48px; align-items: start; }
   .item.even { grid-template-columns: 1fr clamp(280px, 42%, 420px); }
-  .item.even .img { order: 2; }
+  .item.even .img-wrap { order: 2; }
   .item.even .body { order: 1; }
 
-  .img { width: 100%; aspect-ratio: 4/3; overflow: hidden; flex-shrink: 0; position: relative; }
+  /* Offset border frame */
+  .img-wrap {
+    position: relative;
+    padding-bottom: 12px;
+    padding-right: 12px;
+  }
+  .img-wrap::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+    border: 2px solid var(--teal);
+    z-index: 0;
+  }
+  .item.even .img-wrap {
+    padding-bottom: 12px;
+    padding-right: 0;
+    padding-left: 12px;
+  }
+  .item.even .img-wrap::after {
+    right: auto;
+    left: 0;
+  }
+
+  .img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    filter: grayscale(1);
+    transition: filter 0.4s ease;
+  }
+  .item:hover .img { filter: grayscale(0); }
   .fi-lines { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 16px; gap: 4px; }
   .fi-line { height: 2px; border-radius: 1px; background: rgba(255,255,255,0.3); }
 
   .body { padding-top: 8px; display: flex; flex-direction: column; }
+
 
   /* Title — primary, leads the hierarchy */
   h2 {

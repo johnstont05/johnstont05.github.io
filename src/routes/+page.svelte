@@ -1,15 +1,37 @@
 <script>
+  import { onMount } from 'svelte';
   import FeaturedItem from '$lib/components/FeaturedItem.svelte';
   import JobBlock from '$lib/components/JobBlock.svelte';
   import WallGrid from '$lib/components/WallGrid.svelte';
   export let data;
+
+  const full = "hey there, i'm taylor.";
+  const tealWord = 'taylor';
+  const tealStart = full.indexOf(tealWord);
+  const tealEnd = tealStart + tealWord.length;
+
+  let typed = '';
+  let done = false;
+
+  $: pre   = typed.slice(0, Math.min(typed.length, tealStart));
+  $: teal  = typed.length > tealStart ? typed.slice(tealStart, Math.min(typed.length, tealEnd)) : '';
+  $: post  = typed.length > tealEnd   ? typed.slice(tealEnd) : '';
+
+  onMount(() => {
+    let i = 0;
+    const id = setInterval(() => {
+      typed = full.slice(0, ++i);
+      if (i >= full.length) { clearInterval(id); setTimeout(() => done = true, 1800); }
+    }, 55);
+    return () => clearInterval(id);
+  });
 </script>
 
 <svelte:head><title>taylor johnston</title></svelte:head>
 
 <div class="page-container">
   <div class="hero">
-    <h1>hey there, i’m <span style="color: var(--teal);">taylor</span>.</h1>
+    <h1>{pre}<span style="color: var(--teal);">{teal}</span>{post}<span class="cursor" class:hidden={done}>|</span></h1>
     <p class="bio">I'm a <b>data visualization journalist</b> who turns complex data into clear, human stories — from the records request to the final interactive. Scroll down to see my work or click here to read more about me.</p>
   </div>
 
@@ -54,6 +76,7 @@
   .hero {
     padding: 80px clamp(36px, 5vw, 80px) 72px;
     border-bottom: 1px solid var(--color-border);
+    animation: slideUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
   }
   h1 {
     font-family: var(--display);
@@ -62,12 +85,27 @@
     color: var(--black);
     margin-bottom: 24px;
   }
+  .cursor {
+    color: var(--teal);
+    animation: blink 0.8s step-end infinite;
+  }
+  .cursor.hidden { display: none; }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
   .bio {
     font-family: var(--sans);
     font-size: 2rem;
     line-height: 1.2;
     color: var(--black);
     max-width: 1100px;
+    animation: slideUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.15s both;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   /* ── Section heads ── */
@@ -84,7 +122,6 @@
     font-size: 16px;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--emerald);
     white-space: nowrap;
     background-color: var(--teal);
     color: var(--light-teal);
@@ -107,5 +144,4 @@
     .bio { font-size: 1.25rem; }
     .featured-list { gap: 40px; }
   }
-
 </style>
