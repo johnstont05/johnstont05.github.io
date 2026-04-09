@@ -42,8 +42,6 @@ a {
 
 a:hover {
   color: var(--midnight);
-  text-decoration: underline wavy;
-  text-underline-offset: 3px;
 }
 
 ::selection {

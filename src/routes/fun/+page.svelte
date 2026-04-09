@@ -62,23 +62,36 @@
   </div>
 
 {#if sections.length === 0}
+  {@const placeholders = [
+    { label: 'sketchbook', type: 'drawing', layout: 'tall' },
+    { label: 'a little map', type: 'illustration', layout: '' },
+    { label: 'crochet wip', type: 'making', layout: '' },
+    { label: 'sticker pack', type: 'design', layout: 'wide' },
+    { label: 'data doodle', type: 'experiment', layout: '' },
+    { label: 'pin collection', type: 'photo', layout: '' },
+    { label: 'type specimen', type: 'design', layout: '' },
+    { label: 'color study', type: 'illustration', layout: 'wide' },
+    { label: 'something new', type: '???', layout: '' },
+  ]}
   <div class="section">
     <div class="section-head">
       <span class="label">Coming soon</span>
       <hr />
     </div>
     <div class="grid">
-      {#each Array.from({length: 9}) as _, i}
+      {#each placeholders as p, i}
         {@const bg = cardBgs[i % cardBgs.length]}
-        {@const layout = defaultLayouts[i]}
         <div
           class="card placeholder"
-          class:tall={layout === 'tall'}
-          class:wide={layout === 'wide'}
+          class:tall={p.layout === 'tall'}
+          class:wide={p.layout === 'wide'}
           style="background: {bg}"
         >
           <div class="thumb-inner">{@html makeSVG(i)}</div>
-          <div class="placeholder-label">coming soon</div>
+          <div class="overlay placeholder-overlay">
+            <p class="card-title">{p.label}</p>
+            <p class="card-type">{p.type}</p>
+          </div>
         </div>
       {/each}
     </div>
@@ -259,18 +272,8 @@
     color: rgba(255,255,255,0.5);
   }
 
-  .placeholder { cursor: default; opacity: 0.5; transform: none; transition: none; }
-  .placeholder-label {
-    position: absolute;
-    bottom: 16px;
-    left: 16px;
-    font-family: var(--sans);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
-  }
+  .placeholder { cursor: default; opacity: 0.6; transform: none; transition: none; }
+  .placeholder-overlay { opacity: 1; background: rgba(0,0,0,0.45); }
 
   @media (max-width: 700px) {
     .grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }

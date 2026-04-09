@@ -5,9 +5,34 @@
     tagString
       ? tagString.split(/\s*(?:,|\band\b|&)\s*/i).map((tag) => tag.trim()).filter(Boolean)
       : [];
+
+  /** @param {HTMLElement} node */
+  function reveal(node) {
+    node.style.opacity = '0';
+    node.style.transform = 'translateY(36px)';
+    const clips = /** @type {HTMLElement[]} */ ([...node.querySelectorAll('.clip')]);
+    clips.forEach(c => { c.style.opacity = '0'; c.style.transform = 'translateX(-12px)'; });
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        node.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        node.style.opacity = '1';
+        node.style.transform = 'translateY(0)';
+        clips.forEach((c, i) => {
+          setTimeout(() => {
+            c.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+            c.style.opacity = '1';
+            c.style.transform = 'translateX(0)';
+          }, 300 + i * 60);
+        });
+        observer.unobserve(node);
+      }
+    }, { threshold: 0.05 });
+    observer.observe(node);
+    return { destroy: () => observer.disconnect() };
+  }
 </script>
 
-<div class="block">
+<div class="block" use:reveal>
   <div class="left">
     <h2>{job.org}</h2>
     <p class="role">{job.role}</p>
