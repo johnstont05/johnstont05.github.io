@@ -1,21 +1,21 @@
-<!-- src/routes/+page.svelte -->
 <script>
+  // @ts-nocheck
   import FeaturedItem from '$lib/components/FeaturedItem.svelte';
   import JobBlock from '$lib/components/JobBlock.svelte';
   import WallGrid from '$lib/components/WallGrid.svelte';
   export let data;
 </script>
 
-<svelte:head><title>Taylor Fay Johnston</title></svelte:head>
+<svelte:head><title>taylor johnston</title></svelte:head>
 
-<div class="hero">
-  <p class="eyebrow">Data visualization journalist</p>
-  <h1>Making data <em>tell the story</em></h1>
-  <p class="bio">I'm a journalist who uses charts, maps, and interactives to make complex topics clear.</p>
-</div>
+<div class="page-container">
+  <div class="hero">
+    <h1>hey there, i'm <span style="color: var(--teal);">taylor</span>.</h1>
+    <p class="bio">I'm a <b>data visualization journalist</b> who turns complex data into clear, human stories — from the records request to the final interactive. Scroll down to see my work or click here to read more about me.</p>
+  </div>
 
 <div class="section-head">
-  <span class="label">Featured</span>
+  <span class="label">Featured work</span>
   <hr />
 </div>
 
@@ -25,8 +25,8 @@
   {/each}
 </div>
 
-<div class="section-head">
-  <span class="label">All work</span>
+<div class="section-head jobs-head">
+  <span class="label">By organization</span>
   <hr />
 </div>
 
@@ -37,23 +37,72 @@
 </div>
 
 <div class="wall-section">
-  <div class="section-head" style="padding: 24px 36px 20px">
+  <div class="section-head" style="padding: 24px clamp(36px,5vw,72px) 20px; margin-top: 0">
     <span class="label">Visual archive</span>
     <hr />
   </div>
-  <WallGrid clips={data.jobs.flatMap(j => j.clips)} />
+  <WallGrid clips={data.archive} />
+</div>
+
 </div>
 
 <style>
-  .hero { padding: 60px 36px 52px; max-width: 560px; }
-  .eyebrow { font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink3); margin-bottom: 18px; }
-  h1 { font-family: var(--serif); font-size: 44px; line-height: 1.1; font-weight: 400; margin-bottom: 20px; }
-  h1 em { font-style: italic; }
-  .bio { font-size: 15px; line-height: 1.75; color: var(--ink2); max-width: 440px; }
-  .section-head { padding: 0 36px; margin-bottom: 20px; display: flex; align-items: baseline; gap: 12px; }
-  .label { font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink3); white-space: nowrap; }
-  hr { flex: 1; border: none; border-top: 0.5px solid var(--color-border); }
-  .featured-list { padding: 0 36px 64px; display: flex; flex-direction: column; gap: 40px; }
-  .jobs { padding: 0 36px 64px; border-top: 0.5px solid var(--color-border); padding-top: 52px; }
-  .wall-section { border-top: 0.5px solid var(--color-border); }
+  .page-container {
+    background: var(--light-teal);
+    min-height: 100vh;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    padding: 80px clamp(36px, 5vw, 80px) 72px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  h1 {
+    font-family: var(--display);
+    font-size: clamp(52px, 9vw, 110px);
+    font-weight: normal !important;
+    color: var(--black);
+    margin-bottom: 24px;
+  }
+  .bio {
+    font-family: var(--sans);
+    font-size: 2rem;
+    line-height: 1.2;
+    color: var(--black);
+    max-width: 1100px;
+  }
+
+  /* ── Section heads ── */
+  .section-head {
+    padding: 0 clamp(36px, 5vw, 80px);
+    margin: 56px 0 28px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .label {
+    font-family: var(--sans);
+    font-weight: normal;
+    font-size: 16px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--emerald);
+    white-space: nowrap;
+    background-color: var(--teal);
+    color: var(--light-teal);
+    padding: 5px;
+  }
+  hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid var(--teal);
+  }
+
+  .featured-list { padding: 0 clamp(36px, 5vw, 80px) 72px; display: flex; flex-direction: column; gap: 56px; }
+
+  .jobs-head { border-top: 1px solid var(--color-border); padding-top: 56px; }
+  .jobs { padding: 0 clamp(36px, 5vw, 80px) 72px; }
+
+  .wall-section { border-top: 1px solid var(--color-border); }
+
 </style>

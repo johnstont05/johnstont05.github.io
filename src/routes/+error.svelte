@@ -11,7 +11,7 @@
 	}
 
 	h1 {
-		font-weight: 700;
+		font-weight: normal;
 		margin: 0 0 50px 0;
 		font-size: 36px;
 		text-align: start;

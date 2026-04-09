@@ -15,10 +15,10 @@
   $: shuffled = shuffle(clips);
 
   const colors = [
-    '#0d0d0d','#0a7a76','#111','#095c59','#0d0d0d','#0a7a76',
-    '#111','#095c59','#0d0d0d','#0a7a76','#111','#095c59',
-    '#0d0d0d','#0a7a76','#111','#095c59','#0d0d0d','#0a7a76',
-    '#111','#095c59','#0d0d0d','#0a7a76','#111','#095c59',
+    '#071322','#0D6862','#2F4E67','#9AA0F4','#BBBE33',
+    '#071322','#0D6862','#2F4E67','#9AA0F4','#BBBE33',
+    '#071322','#0D6862','#2F4E67','#9AA0F4','#BBBE33',
+    '#071322','#0D6862','#2F4E67','#9AA0F4','#BBBE33',
   ];
 
   function makeSVG(i) {
@@ -63,6 +63,7 @@
     display: block;
     text-decoration: none;
   }
+  
   .tile:hover .overlay { opacity: 1; }
   .inner {
     width: 100%;
@@ -97,8 +98,9 @@
     justify-content: flex-end;
     padding: 10px;
   }
-  .overlay-title { font-family: var(--display); font-weight: 700; font-size: 11px; line-height: 1.3; color: #c8f500; }
-  .overlay-pub { font-size: 10px; color: rgba(255,255,255,0.55); margin-top: 2px; letter-spacing: 0.04em; }
+  .overlay-title { font-family: var(--sans); font-weight: bold; font-size: 11px; line-height: 1.3; color: var(--white); }
+  .overlay-pub { font-size: 10px; color: rgba(255,255,255,0.55); margin-top: 2px; letter-spacing: 0.04em;  }
+  
   @media (max-width: 700px) {
     .wall { grid-template-columns: repeat(3, 1fr); }
   }

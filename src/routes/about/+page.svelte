@@ -1,13 +1,16 @@
 <svelte:head>
-  <title>About — Taylor Fay Johnston</title>
+  <title>about - taylor johnston</title>
 </svelte:head>
 
-<div class="hero">
-  <p class="intro-line">About me</p>
-  <h1>Taylor<br>Johnston</h1>
-</div>
+<div class="page-container">
+  <div class="hero">
+    <h1>about <span style="color: var(--lavender);">me</span>.</h1>
+  </div>
 
 <div class="body">
+  <div class="photo-col">
+    <img src="/johnston_headshot.jpg" alt="Taylor Johnston" class="headshot" />
+  </div>
   <div class="left">
     <p>Data + graphics journalist. I report, I code, I draw. I care about making complex things understandable to people who don't spend their days in spreadsheets.</p>
     <p>I've worked at CBS News as a <a href="https://www.cbsnews.com/team/taylor-johnston/" target="_blank">visual data journalist</a> and as a <a href="https://www.ctinsider.com/author/taylor-johnston/" target="_blank">graphics reporter at Hearst Connecticut Media Group</a>. First-gen grad from Ohio University with degrees in journalism and interactive information design.</p>
@@ -16,7 +19,11 @@
   <div class="right">
     <div class="block">
       <p class="section-label">Tools &amp; skills</p>
-      <p class="skills">D3.js · Svelte · R · Python<br>Mapbox · QGIS · Observable<br>Illustrator · ai2html · SQL</p>
+      <div class="tag-row">
+        {#each ['D3.js', 'Svelte', 'R', 'Python', 'Mapbox', 'QGIS', 'Observable', 'Illustrator', 'ai2html', 'SQL'] as skill}
+          <span class="tag">{skill}</span>
+        {/each}
+      </div>
     </div>
     <div class="block">
       <p class="section-label">Find me</p>
@@ -29,35 +36,44 @@
     </div>
   </div>
 </div>
+</div>
 
 <style>
-  .hero {
-    padding: 80px 36px 64px;
-    border-bottom: 1px solid var(--color-border);
+  .page-container {
+    background: var(--light-lavender);
+    min-height: 100vh;
   }
-  .intro-line {
-    font-family: var(--sans);
-    font-style: italic;
-    font-size: 18px;
-    font-weight: 300;
-    color: var(--ink2);
-    margin-bottom: 4px;
+
+  .hero {
+    padding: 80px clamp(36px, 5vw, 80px) 72px;
+    border-bottom: 1px solid var(--color-border);
   }
   h1 {
     font-family: var(--display);
-    font-style: italic;
-    font-size: clamp(72px, 13vw, 152px);
-    line-height: 1.05;
-    color: var(--ink);
+    font-size: clamp(52px, 9vw, 110px);
+    font-weight: normal !important;
+    color: var(--black);
+    margin-bottom: 24px;
   }
 
   .body {
-    padding: 52px 36px 72px;
+    padding: 52px clamp(36px, 5vw, 80px) 72px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 260px 1fr 240px;
     gap: 64px;
-    max-width: 900px;
+    max-width: 1100px;
   }
+
+  .photo-col { padding-top: 4px; }
+  .headshot {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    border-radius: 62% 38% 46% 54% / 60% 44% 56% 40%;
+  }
+
   .left p {
     font-size: 16px;
     line-height: 1.75;
@@ -76,7 +92,18 @@
     color: var(--ink3);
     margin-bottom: 12px;
   }
-  .skills { font-size: 16px; line-height: 2; color: var(--ink2); }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--black);
+    padding: 3px 7px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
 
   .contact a {
     display: block;
@@ -92,7 +119,11 @@
   .contact a:last-child { border-bottom: 1px solid var(--color-border); }
   .contact a:hover { color: var(--teal); }
 
-  @media (max-width: 700px) {
+  @media (max-width: 900px) {
+    .body { grid-template-columns: 200px 1fr; }
+    .right { grid-column: 2; }
+  }
+  @media (max-width: 600px) {
     .body { grid-template-columns: 1fr; gap: 40px; }
   }
 </style>
