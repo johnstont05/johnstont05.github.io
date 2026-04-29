@@ -9,14 +9,21 @@
     if (path === '/about') return 'var(--light-lavender)';
     return 'var(--light-teal)';
   })();
+
+  $: footerAccent = (() => {
+    const path = $page.url.pathname;
+    if (path === '/fun') return 'var(--lime)';
+    if (path === '/about') return 'var(--lavender)';
+    return 'var(--teal)';
+  })();
 </script>
 
 <svelte:body style="background: {footerBg};" />
 <NavBar />
 <slot />
 
-<footer style="background: {footerBg};">
-  <p class="thanks">Thanks for stopping by. Check out my <a href="https://www.etsy.com/shop/stickersbytayjay" target="_blank">art shop</a>, browse my <a href="/work">work</a>, or <a href="mailto:taylorfjohnston@gmail.com">get in touch</a>.</p>
+<footer style="background: {footerBg}; --footer-accent: {footerAccent};">
+  <p class="thanks">Thanks for stopping by! Check out my <a href="https://www.etsy.com/shop/stickersbytayfayjay" target="_blank">Etsy</a>, browse my <a href="/work">work</a>, or <a href="mailto:taylorfjohnston@gmail.com">get in touch</a>.</p>
   <ul>
     <li><a href="https://x.com/TF_Johnston" target="_blank">Twitter</a></li>
     <li><a href="https://bsky.app/profile/taylorjohnston.bsky.social" target="_blank">Bluesky</a></li>
@@ -43,7 +50,7 @@
     text-decoration: none;
     transition: color 0.15s;
   }
-  a:hover { color: var(--teal); }
+  a:hover { color: var(--footer-accent); }
   .thanks {
     font-family: var(--sans);
     font-size: 15px;

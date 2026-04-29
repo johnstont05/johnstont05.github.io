@@ -39,15 +39,15 @@
   </div>
   <div class="clips">
     {#each job.clips as clip}
-      <a href={clip.url} target="_blank" class="clip">
-        <span class="title">{clip.title}</span>
+      <div class="clip">
+        <a href={clip.url} target="_blank" class="title">{clip.title}</a>
         <span class="right">
           {#each splitTags(clip.tag) as tag}
             <span class="tag">{tag}</span>
           {/each}
           <span class="date">{clip.date}</span>
         </span>
-      </a>
+      </div>
     {/each}
   </div>
 </div>
@@ -89,21 +89,22 @@
     padding: 14px 0;
     border-top: 1px solid var(--color-border);
     gap: 20px;
-    text-decoration: none;
-    color: var(--ink);
-    transition: color 0.15s;
   }
   .clip:last-child {
     border-bottom: 1px solid var(--color-border);
-  }
-  .clip:hover .title {
-    color: var(--teal);
   }
   .title {
     font-size: 16px;
     line-height: 1.5;
     flex: 1;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    color: var(--ink);
     transition: color 0.15s;
+  }
+  .title:hover {
+    color: var(--teal);
   }
   .right {
     display: flex;

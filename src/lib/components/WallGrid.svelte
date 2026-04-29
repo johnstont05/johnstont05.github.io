@@ -82,10 +82,9 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
-    filter: grayscale(1);
-    transition: transform 0.55s ease, filter 0.4s ease;
+    transition: transform 0.55s ease;
   }
-  .tile:hover .clip-image { transform: scale(1.06); filter: grayscale(0) saturate(1.1) contrast(1.05); }
+  .tile:hover .clip-image { transform: scale(1.06); }
   .inner :global(svg) { opacity: 0.35; width: 32px; height: 32px; }
   .overlay {
     position: absolute;

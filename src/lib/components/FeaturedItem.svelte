@@ -1,4 +1,5 @@
 <script>
+  // @ts-nocheck
   export let item;
   export let index;
 
@@ -61,36 +62,12 @@
 </div>
 
 <style>
-  .item { display: grid; grid-template-columns: clamp(280px, 42%, 420px) 1fr; gap: 48px; align-items: start; }
+  .item { display: grid; grid-template-columns: clamp(280px, 42%, 420px) 1fr; gap: 64px; align-items: start; }
   .item.even { grid-template-columns: 1fr clamp(280px, 42%, 420px); }
   .item.even .img-wrap { order: 2; }
   .item.even .body { order: 1; }
 
-  /* Offset border frame */
-  .img-wrap {
-    position: relative;
-    padding-bottom: 12px;
-    padding-right: 12px;
-  }
-  .img-wrap::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: calc(100% - 12px);
-    height: calc(100% - 12px);
-    border: 2px solid var(--teal);
-    z-index: 0;
-  }
-  .item.even .img-wrap {
-    padding-bottom: 12px;
-    padding-right: 0;
-    padding-left: 12px;
-  }
-  .item.even .img-wrap::after {
-    right: auto;
-    left: 0;
-  }
+  .img-wrap { position: relative; }
 
   .img {
     width: 100%;
@@ -99,42 +76,35 @@
     flex-shrink: 0;
     position: relative;
     z-index: 1;
-    filter: grayscale(1);
-    transition: filter 0.4s ease;
   }
-  .item:hover .img { filter: grayscale(0); }
   .fi-lines { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 16px; gap: 4px; }
   .fi-line { height: 2px; border-radius: 1px; background: rgba(255,255,255,0.3); }
 
-  .body { padding-top: 8px; display: flex; flex-direction: column; }
+  .body { display: flex; flex-direction: column; }
 
-
-  /* Title — primary, leads the hierarchy */
   h2 {
     font-family: var(--sans);
     font-size: 28px;
-    line-height: 1.15;
-    margin-bottom: 10px;
+    line-height: 1.2;
+    margin-bottom: 16px;
   }
   h2 a { color: var(--ink); text-decoration: none; }
   h2 a:hover { color: var(--teal); }
 
-  /* Description — flows from title, tight grouping */
   .why {
     font-size: 16px;
-    line-height: 1.7;
+    line-height: 1.75;
     color: var(--ink2);
-    margin-bottom: 20px;
+    max-width: 100vw;
   }
 
-  /* Metadata — secondary info, grouped tightly, separated from content above */
   .meta {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    padding-top: 16px;
+    gap: 10px;
+    padding-top: 20px;
     border-top: 1px solid var(--color-border);
-    margin-bottom: 20px;
+    margin-bottom: 24px;
   }
   .pub {
     font-size: 13px;
