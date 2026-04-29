@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+build/
+.svelte-kit/
+.netlify/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+**/.DS_Store
+
+# Misc
+*.tmp
+*.log

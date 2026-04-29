@@ -1,140 +1,100 @@
+<script>
+  import SeoMeta from '$lib/components/SeoMeta.svelte';
+</script>
+
 <svelte:head>
-  <title>Taylor Johnston — About</title>
+  <title>about - taylor johnston</title>
+  <SeoMeta title="about — taylor johnston" description="Journalist. Data nerd. Sticker maker. First-gen kid from Ohio who found her people in a spreadsheet." path="/about" />
 </svelte:head>
 
-<div class="container">
-  <main>
-    <div class="about-image">
-      <div id="wrap" class="img-wrap">
-        <img src="/johnston_headshot.jpg" alt="Black and white headshot of Taylor Johnston." />
-      </div>
+<div class="page-container">
+  <div class="hero">
+    <h1>about <span style="color: var(--lavender);">me</span>.</h1>
+    <!-- <p class="bio">Journalist. Data nerd. Sticker maker. First-gen kid from Ohio who found her people in a spreadsheet.</p> -->
+  </div>
+
+  <div class="body">
+    <div class="photo-col">
+      <img src="/johnston_headshot.jpg" alt="Taylor Johnston" class="headshot" />
     </div>
-    <div class="about-text">
-      <p>Hello! I'm Taylor Johnston (she/her).</p>
-      <p>
-        I'm a journalist with the focus of telling impactful stories at the
-        intersection of data and design.
-      </p>
-      <p>
-        Previously, I worked at CBS News as a <a
-          href="https://www.cbsnews.com/team/taylor-johnston/"
-          target="_blank">visual data journalist</a
-        > on the data team.
-      </p>
-      <p>
-        Before that, I was a <a
-          href="https://www.ctinsider.com/author/taylor-johnston/"
-          target="_blank">graphics reporter at Hearst Connecticut Media Group</a
-        >. I am also a first-generation college student who graduated from Ohio
-        University with degrees in journalism and interactive information
-        design.
-      </p>
-      <p>
-        When I am not sifting through a spreadsheet or creating viz, you can
-        find me making stickers for my <a
-          href="https://www.etsy.com/shop/stickersbytayfayjay"
-          target="_blank">Etsy shop</a
-        >, listening to an audiobook or traveling to new places to collect pins.
-      </p>
-      <p>
-        Find me <a href="https://x.com/TF_Johnston" target="_blank"
-          >@TF_Johnston</a
-        >
-        / <a href="taylorjohnston.bsky.social" target="_blank">bsky</a> /
-        <a href="mailto:taylorfjohnston@gmail.com">mail</a>
-        / <a href="https://github.com/johnstont05" target="_blank">github</a>
-      </p>
+
+    <div class="left">
+      <p>I'm a journalist with the focus of telling impactful stories at the intersection of data and design.</p>
+      <p>Previously, I worked at <a href="https://www.cbsnews.com/team/taylor-johnston/" target="_blank">CBS News</a> as a visual data journalist on the data team. Before that, I was a <a href="https://www.ctinsider.com/author/taylor-johnston/" target="_blank">graphics reporter at Hearst Connecticut Media Group</a>.</p>
+      <p>I'm also a first-generation college student who graduated from Ohio University with degrees in journalism and interactive information design.</p>
+      <p>When I'm not sifting through a spreadsheet or creating viz, you can find me making stickers for my <a href="https://www.etsy.com/shop/stickersbytayjay" target="_blank">Etsy shop</a>, listening to an audiobook, or traveling to new places to collect pins.</p>
+
+      <p class="find-me">Find me <a href="https://x.com/TF_Johnston" target="_blank">@TF_Johnston</a> / <a href="https://bsky.app/profile/taylorjohnston.bsky.social" target="_blank">bsky</a> / <a href="https://github.com/johnstont05" target="_blank">github</a> / <a href="mailto:taylorfjohnston@gmail.com">mail</a></p>
     </div>
-  </main>
+  </div>
 </div>
 
 <style>
-  a {
-    color: black;
-    text-decoration: none; /* Optional: Removes underline */
+  .page-container {
+    background: var(--light-lavender);
+    min-height: 100vh;
   }
 
-  .container {
-    max-width: 900px;
-    display: flex;
-    justify-content: center;
-    margin-top: 150px;
-    /* padding: 20px; */
+  /* ── Hero ── */
+  .hero {
+    padding: 80px clamp(36px, 5vw, 80px) 60px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .bio {
+    font-family: var(--sans);
+    font-size: 2rem;
+    line-height: 1.2;
+    color: var(--black);
+    max-width: 1100px;
+  }
+  h1 {
+    font-family: var(--display);
+    font-size: clamp(52px, 9vw, 110px);
+    font-weight: normal !important;
+    color: var(--black);
+    margin-bottom: 16px;
   }
 
-  main {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    margin: 0 auto;
-    flex-direction: row;
+  /* ── Body grid ── */
+  .body {
+    padding: 56px clamp(36px, 5vw, 80px) 80px;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 56px;
+    max-width: 1100px;
   }
 
-  .about-image {
-    flex-shrink: 0;
-    display: flex;
-    justify-content: center;
-  }
-
-  .img-wrap {
-    margin-right: 40px;
-    position: relative;
-    padding: 30px;
-  }
-
-  .img-wrap::after {
-    content: "";
-    border-radius: 999px;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
+  /* ── Photo ── */
+  .photo-col { padding-top: 4px; }
+  .headshot {
     width: 100%;
-    background: conic-gradient(from 30deg, black, black 46%, transparent 46%);
-    -webkit-mask: radial-gradient(
-      farthest-side,
-      transparent calc(100% - 3px),
-      #fff calc(100% - 2px)
-    );
-    mask: radial-gradient(
-      farthest-side,
-      transparent calc(100% - 3px),
-      #fff calc(100% - 2px)
-    );
-  }
-
-  img {
-    border-radius: 999px;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: top;
     display: block;
-    width: 100%;
-    max-width: 360px;
-    height: auto;
   }
 
-  .about-text {
-    width: 600px;
-    max-width: 100%;
-    line-height: 1.5;
-    font-family: "Roboto Mono", monospace;
-    font-size: 16px;
+  /* ── Bio ── */
+  .left { display: flex; flex-direction: column; }
+  .left p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--ink2);
+    margin-bottom: 16px;
   }
+  .left a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 
-  p {
-    margin-bottom: 15px;
+  /* ── Find me ── */
+  .find-me {
+    font-size: 15px;
+    color: var(--ink3);
+    margin-top: 8px;
   }
+  .find-me a { color: var(--ink); text-decoration: none; }
+  .find-me a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-  @media (max-width: 768px) {
-    main {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    .about-text {
-      width: 90%;
-      text-align: left;
-      font-size: .9rem;
-      margin: auto;
-    }
+  /* ── Responsive ── */
+  @media (max-width: 700px) {
+    .body { grid-template-columns: 1fr; gap: 36px; }
   }
 </style>
