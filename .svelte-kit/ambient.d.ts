@@ -52,6 +52,7 @@ declare module '$env/static/private' {
 	export const VSCODE_PROFILE_INITIALIZED: string;
 	export const __CF_USER_TEXT_ENCODING: string;
 	export const npm_execpath: string;
+	export const VIRTUAL_ENV: string;
 	export const PAGER: string;
 	export const LSCOLORS: string;
 	export const PATH: string;
@@ -80,13 +81,11 @@ declare module '$env/static/private' {
 	export const VSCODE_GIT_ASKPASS_MAIN: string;
 	export const PYTHON_BASIC_REPL: string;
 	export const HOMEBREW_PREFIX: string;
-	export const GK_GL_ADDR: string;
 	export const npm_config_cache: string;
 	export const LESS: string;
 	export const LOGNAME: string;
 	export const npm_lifecycle_script: string;
 	export const VSCODE_GIT_IPC_HANDLE: string;
-	export const GK_GL_PATH: string;
 	export const npm_config_user_agent: string;
 	export const VSCODE_GIT_ASKPASS_NODE: string;
 	export const GIT_ASKPASS: string;
@@ -154,6 +153,7 @@ declare module '$env/dynamic/private' {
 		VSCODE_PROFILE_INITIALIZED: string;
 		__CF_USER_TEXT_ENCODING: string;
 		npm_execpath: string;
+		VIRTUAL_ENV: string;
 		PAGER: string;
 		LSCOLORS: string;
 		PATH: string;
@@ -182,13 +182,11 @@ declare module '$env/dynamic/private' {
 		VSCODE_GIT_ASKPASS_MAIN: string;
 		PYTHON_BASIC_REPL: string;
 		HOMEBREW_PREFIX: string;
-		GK_GL_ADDR: string;
 		npm_config_cache: string;
 		LESS: string;
 		LOGNAME: string;
 		npm_lifecycle_script: string;
 		VSCODE_GIT_IPC_HANDLE: string;
-		GK_GL_PATH: string;
 		npm_config_user_agent: string;
 		VSCODE_GIT_ASKPASS_NODE: string;
 		GIT_ASKPASS: string;

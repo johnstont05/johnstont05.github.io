@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte';
+  import SeoMeta from '$lib/components/SeoMeta.svelte';
   import FeaturedItem from '$lib/components/FeaturedItem.svelte';
   import JobBlock from '$lib/components/JobBlock.svelte';
   import WallGrid from '$lib/components/WallGrid.svelte';
@@ -27,7 +28,10 @@
   });
 </script>
 
-<svelte:head><title>taylor johnston</title></svelte:head>
+<svelte:head>
+  <title>taylor johnston</title>
+  <SeoMeta description="Data + graphics journalist. I find the story in the spreadsheet — from records requests and data analysis to design and front-end development." />
+</svelte:head>
 
 <div class="page-container">
   <div class="hero">

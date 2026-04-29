@@ -1,17 +1,21 @@
 <script>
   // @ts-nocheck
+  import SeoMeta from '$lib/components/SeoMeta.svelte';
   import FeaturedItem from '$lib/components/FeaturedItem.svelte';
   import JobBlock from '$lib/components/JobBlock.svelte';
   import WallGrid from '$lib/components/WallGrid.svelte';
   export let data;
 </script>
 
-<svelte:head><title>taylor johnston</title></svelte:head>
+<svelte:head>
+  <title>taylor johnston</title>
+  <SeoMeta title="taylor johnston" description="Data + graphics journalist. I find the story in the spreadsheet — from records requests and data analysis to design and front-end development." path="/work" />
+</svelte:head>
 
 <div class="page-container">
   <div class="hero">
     <h1>hey there, i'm <span style="color: var(--teal);">taylor</span>.</h1>
-    <p class="bio">I'm a <b>data visualization journalist</b> who turns complex data into clear, human stories — from the records request to the final interactive. Scroll down to see my work or click here to read more about me.</p>
+    <p class="bio">I'm a <b>data + graphics journalist</b> who finds the story in the spreadsheet — from records requests and data analysis to design and front-end development.</p>
   </div>
 
 <div class="section-head">
