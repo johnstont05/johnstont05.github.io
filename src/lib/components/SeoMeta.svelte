@@ -1,6 +1,6 @@
 <script>
   const SITE_URL = 'https://taylorfayjohnston.com';
-  const DEFAULT_IMAGE = `${SITE_URL}/og.png`;
+  const DEFAULT_IMAGE = `${SITE_URL}/img/og.png`;
 
   export let title = 'taylor johnston';
   export let description = "Data + graphics journalist. I find the story in the spreadsheet — from records requests and data analysis to design and front-end development.";
