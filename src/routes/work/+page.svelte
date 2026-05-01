@@ -9,13 +9,14 @@
 
 <svelte:head>
   <title>taylor johnston</title>
-  <SeoMeta title="taylor johnston" description="Data + graphics journalist. I find the story in the spreadsheet — from records requests and data analysis to design and front-end development." path="/work" />
 </svelte:head>
+
+<SeoMeta title="taylor johnston" description="Data + graphics journalist. I find the story in the spreadsheet — from records requests and data analysis to design and front-end development." path="/work" />
 
 <div class="page-container">
   <div class="hero">
-    <h1>hey there, i'm <span style="color: var(--teal);">taylor</span>.</h1>
-    <p class="bio">I'm a <b>data + graphics journalist</b> who finds the story in the spreadsheet — from records requests and data analysis to design and front-end development.</p>
+    <h1>hey, i'm <span style="color: var(--teal);">taylor</span></h1>
+    <p class="bio">I'm a <b>data + graphics journalist</b> who finds the story in the spreadsheet – from records requests and data analysis to design and front-end development. Scroll down to see my work.</p>
   </div>
 
 <div class="section-head">
@@ -58,7 +59,7 @@
 
   /* ── Hero ── */
   .hero {
-    padding: 80px clamp(36px, 5vw, 80px) 72px;
+    padding: 70px clamp(36px, 5vw, 80px) 72px;
     border-bottom: 1px solid var(--color-border);
   }
   h1 {
@@ -66,7 +67,7 @@
     font-size: clamp(52px, 9vw, 110px);
     font-weight: normal !important;
     color: var(--black);
-    margin-bottom: 24px;
+    margin-bottom: 0.5rem;
   }
   .bio {
     font-family: var(--sans);
@@ -109,4 +110,12 @@
 
   .wall-section { border-top: 1px solid var(--color-border); }
 
+  @media (max-width: 680px) {
+    .hero { padding-top: 48px; padding-bottom: 40px; }
+    h1 {
+      font-size: 36px;
+    }
+    .bio { font-size: 18px; }
+    .featured-list { gap: 40px; }
+  }
 </style>

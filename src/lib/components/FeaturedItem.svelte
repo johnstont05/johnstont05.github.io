@@ -144,7 +144,7 @@
 
   @media (max-width: 680px) {
     .item, .item.even { grid-template-columns: 1fr; gap: 20px; }
-    .item.even .img { order: 0; }
+    .item.even .img-wrap { order: 0; }
     .item.even .body { order: 1; }
     h2 { font-size: 20px; }
     .tag { font-size: 12px; }

@@ -6,7 +6,7 @@
   import WallGrid from '$lib/components/WallGrid.svelte';
   export let data;
 
-  const full = "hey there, i'm taylor.";
+  const full = "hey, i'm taylor.";
   const tealWord = 'taylor';
   const tealStart = full.indexOf(tealWord);
   const tealEnd = tealStart + tealWord.length;
@@ -30,8 +30,9 @@
 
 <svelte:head>
   <title>taylor johnston</title>
-  <SeoMeta description="Data + graphics journalist. I find the story in the spreadsheet — from records requests and data analysis to design and front-end development." />
 </svelte:head>
+
+<SeoMeta description="Data + graphics journalist. I find the story in the spreadsheet – from records requests and data analysis to design and front-end development. Scroll down to see my work." />
 
 <div class="page-container">
   <div class="hero">

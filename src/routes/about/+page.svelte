@@ -4,12 +4,13 @@
 
 <svelte:head>
   <title>about - taylor johnston</title>
-  <SeoMeta title="about — taylor johnston" description="Journalist. Data nerd. Sticker maker. First-gen kid from Ohio who found her people in a spreadsheet." path="/about" />
 </svelte:head>
+
+<SeoMeta title="about — taylor johnston" description="Journalist. Data nerd. Sticker maker. First-gen kid from Ohio who found her people in a spreadsheet." path="/about" />
 
 <div class="page-container">
   <div class="hero">
-    <h1>about <span style="color: var(--lavender);">me</span>.</h1>
+    <h1>about <span style="color: var(--lavender);">me</span></h1>
     <!-- <p class="bio">Journalist. Data nerd. Sticker maker. First-gen kid from Ohio who found her people in a spreadsheet.</p> -->
   </div>
 
@@ -40,53 +41,46 @@
     padding: 80px clamp(36px, 5vw, 80px) 60px;
     border-bottom: 1px solid var(--color-border);
   }
-  .bio {
-    font-family: var(--sans);
-    font-size: 2rem;
-    line-height: 1.2;
-    color: var(--black);
-    max-width: 1100px;
-  }
   h1 {
     font-family: var(--display);
     font-size: clamp(52px, 9vw, 110px);
     font-weight: normal !important;
     color: var(--black);
-    margin-bottom: 16px;
   }
 
   /* ── Body grid ── */
   .body {
     padding: 56px clamp(36px, 5vw, 80px) 80px;
     display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 56px;
-    max-width: 1100px;
+    grid-template-columns: 400px 1fr;
+    gap: 72px;
+    max-width: 1200px;
   }
 
   /* ── Photo ── */
   .photo-col { padding-top: 4px; }
   .headshot {
     width: 100%;
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
     object-position: top;
     display: block;
+    border-radius: 50%;
   }
 
   /* ── Bio ── */
   .left { display: flex; flex-direction: column; }
   .left p {
-    font-size: 15px;
+    font-size: 17px;
     line-height: 1.8;
     color: var(--ink2);
-    margin-bottom: 16px;
+    margin-bottom: 20px;
   }
   .left a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 
   /* ── Find me ── */
   .find-me {
-    font-size: 15px;
+    font-size: 17px;
     color: var(--ink3);
     margin-top: 8px;
   }
@@ -95,6 +89,12 @@
 
   /* ── Responsive ── */
   @media (max-width: 700px) {
+       .hero { padding-top: 48px; padding-bottom: 40px; }
+    h1 {
+      font-size: 36px;
+      line-height: 1.1;
+    }
+
     .body { grid-template-columns: 1fr; gap: 36px; }
   }
 </style>
