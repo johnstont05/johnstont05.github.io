@@ -1,5 +1,4 @@
-/* src/app.css */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 
 @font-face {
   font-family: 'Brave Hunter';
@@ -13,43 +12,29 @@ html { overflow-x: hidden; scroll-behavior: smooth; }
 
 :root {
   --display: 'Brave Hunter', Arial, sans-serif;
-  --serif: 'Lora', Georgia, serif;
   --sans: 'Plus Jakarta Sans', system-ui, sans-serif;
 
-  --8px: 0.5rem;
-  --10px: 0.625rem; 
   --12px: 0.75rem;
   --14px: 0.875rem;
   --16px: 1rem;
   --18px: 1.125rem;
   --20px: 1.25rem;
   --24px: 1.5rem;
-  --32px: 2rem;
   --40px: 2.5rem;
-  --56px: 3.5rem;
-  --60px: 3.75rem;
-  --64px: 4rem;
-  --80px: 5rem;
   --88px: 5.5rem;
-  --96px: 6rem;
+  --80px: 5rem;
+  
 
   --teal: #188E85;
   --light-teal: #DEEAE9;
-  --dark-teal: #0F5B59;
   --chartreuse: #F8FD00;
-  --lime: #BBBE33;
-  --light-lime:#EFEFE1;
-  --lavender:#9AA0F4;
-  --light-lavender: #EBECF4;
   --black: #222;
-  --white: #FFFFFF;
   --gray: #666666;
 }
-  
 
-  body {
+body {
   font-family: var(--sans);
-  color: var(--midnight);
+  color: var(--black);
   font-size: 16px;
   line-height: 1.65;
   overflow-x: hidden;
@@ -58,16 +43,15 @@ html { overflow-x: hidden; scroll-behavior: smooth; }
 }
 
 a {
-  color: var(--emerald);
+  color: var(--teal);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--midnight);
+  color: var(--black);
 }
 
 ::selection {
-  background: rgba(187,190,51,0.22);
-  color: var(--midnight);
+  background: #ffff9f;
+  color: var(--black);
 }
-

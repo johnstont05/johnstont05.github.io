@@ -42,17 +42,13 @@
 
 <div class="page-container">
   <div class="hero">
-    <!-- <div class="intro">Hey, I'm</div> -->
     <h1>Taylor Johnston</h1>
     <div class="tag">
-      data journalist &bull; information designer &bull; developer
+      data journalist <span class="sep">*</span> information designer <span class="sep">*</span> developer
     </div>
     <p class="bio">
 I do the analysis, write the code and build the thing. I've made hundreds of charts, built interactive maps and scrollytelling experiences and wrangled more datasets than I'd like to admit — all in service of making complicated things make sense. I'm happiest when the work actually changes how someone understands something. <br><br>
 When I'm not in a spreadsheet, I'm making stickers for my <a href="https://www.etsy.com/shop/stickersbytayfayjay" target="_blank">Etsy shop</a>, listening to an audiobook or collecting pins from somewhere I've traveled to.
-
-
-
     </p>
     <p class="jump-sentence">
       Take a look at my <a href="#work" class="jump-inline">work</a> {#if funSections.length}  – or take a detour through <a href="#{funSections[0].label.toLowerCase().replace(/\s+/g, '-')}" class="jump-inline">a fun thing I made</a>{/if}.
@@ -91,18 +87,9 @@ When I'm not in a spreadsheet, I'm making stickers for my <a href="https://www.e
     align-items: center;
     text-align: center;
   }
-  /* .intro {
-    font-family: var(--sans);
-    font-size: var(--16px);
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--light-teal);
-    margin-bottom: 0.5rem;
-  } */
   h1 {
     font-family: var(--display);
-    font-size: var(--80px);
+    font-size: var(--88px);
     font-weight: 400;
     line-height: 1;
     color: var(--light-teal);
@@ -115,6 +102,9 @@ When I'm not in a spreadsheet, I'm making stickers for my <a href="https://www.e
     font-weight: 500;
     letter-spacing: 0.02em;
     margin-bottom: 24px;
+  }
+  .tag .sep {
+    vertical-align: -0.2em;
   }
   .bio {
     font-family: var(--sans);
@@ -132,7 +122,7 @@ When I'm not in a spreadsheet, I'm making stickers for my <a href="https://www.e
   .jump-sentence {
     font-family: var(--sans);
     font-size: var(--18px);
-    color: rgba(222, 234, 233, 0.6);
+    color: var(--light-teal);
     margin-top: 28px;
     line-height: 1.4;
   }

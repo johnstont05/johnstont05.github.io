@@ -1,5 +1,4 @@
 // @ts-nocheck
-// src/routes/+layout.server.js
 
 const SHEET_ID = '1YAtEQ3JW87v2JDepZ7ArP0mII0kTPtfMdpYy-tJ8b9Q';
 const sheetUrl = (tab) =>
@@ -66,20 +65,16 @@ function parseCSV(text) {
 }
 
 export async function load({ fetch }) {
-  const [jobsRes, clipsRes, funRes] = await Promise.all([
-    fetch(sheetUrl('jobs')),
+  const [clipsRes, funRes] = await Promise.all([
     fetch(sheetUrl('clips')),
     fetch(sheetUrl('fun')),
   ]);
 
-  const [jobsCSV, clipsCSV, funCSV] = await Promise.all([
-    jobsRes.text(),
+  const [clipsCSV, funCSV] = await Promise.all([
     clipsRes.text(),
     funRes.text(),
   ]);
 
-  const jobs = parseCSV(jobsCSV).sort((a, b) => +a.order - +b.order);
-  // @ts-ignore
   const clips = parseCSV(clipsCSV).map((c) => ({
     ...c,
     date: apDate(c.date),
@@ -88,37 +83,16 @@ export async function load({ fetch }) {
   }))
   .filter((c) => c.hidden?.toLowerCase() !== 'true')
   .sort((a, b) => dateValue(b.date) - dateValue(a.date));
-  // @ts-ignore
+
   const fun = parseCSV(funCSV).map((f) => ({
     ...f,
     date: apDate(f.date),
     image_url: normalizeImageUrl(f.image_url),
   }));
 
-  // Attach clips to their job, excluding featured and archive_only items
-  const jobsWithClips = jobs.map((job) => ({
-    ...job,
-    clips: clips.filter((c) =>
-      c.org === job.org &&
-      c.featured?.toLowerCase() !== 'true' &&
-      c.archive_only?.toLowerCase() !== 'true'
-    ),
-  }));
-
-  const featured = clips
-    .filter((c) => c.featured?.toLowerCase() === 'true')
-    .slice(0, 3);
-
-  // Archive shows all non-featured clips (including archive_only), except archive_only=FALSE which explicitly excludes
-  const archive = clips.filter((c) =>
-    c.featured?.toLowerCase() !== 'true' &&
-    c.archive_only?.toLowerCase() !== 'false'
-  );
-
-  // Include anything with a type set (chart/project), plus non-archive items without a type
   const allWork = clips
     .filter((c) => c.type?.trim() ? true : c.archive_only?.toLowerCase() !== 'true')
     .sort((a, b) => dateValue(b.date) - dateValue(a.date));
 
-  return { jobs: jobsWithClips, featured, archive, fun, allWork };
+  return { fun, allWork };
 }
