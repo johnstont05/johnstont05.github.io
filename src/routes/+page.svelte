@@ -48,7 +48,7 @@
       data journalist &bull; information designer &bull; developer
     </div>
     <p class="bio">
-I do the analysis, write the code and build the thing. I've made hundreds of charts, built interactive maps and scrollytelling experiencesand wrangled more datasets than I'd like to admit — all in service of making complicated things make sense. I'm happiest when the work actually changes how someone understands something. <br><br>
+I do the analysis, write the code and build the thing. I've made hundreds of charts, built interactive maps and scrollytelling experiences and wrangled more datasets than I'd like to admit — all in service of making complicated things make sense. I'm happiest when the work actually changes how someone understands something. <br><br>
 When I'm not in a spreadsheet, I'm making stickers for my <a href="https://www.etsy.com/shop/stickersbytayfayjay" target="_blank">Etsy shop</a>, listening to an audiobook, or collecting pins from somewhere I've traveled to.
 
 
