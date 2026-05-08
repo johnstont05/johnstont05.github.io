@@ -24,6 +24,7 @@
 </script>
 
 <svelte:head>
+  <meta name="description" content="Data journalist, information designer, and developer. I build visual stories at the intersection of data and design." />
   <meta property="og:site_name" content="Taylor Johnston" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://johnstont05.github.io" />
