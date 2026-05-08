@@ -23,6 +23,19 @@
   }
 </script>
 
+<svelte:head>
+  <meta property="og:site_name" content="Taylor Johnston" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://johnstont05.github.io" />
+  <meta property="og:title" content="Taylor Johnston | Data Visualization Designer and Developer" />
+  <meta property="og:description" content="Data journalist, information designer, and developer. I build visual stories at the intersection of data and design." />
+  <meta property="og:image" content="https://johnstont05.github.io/img/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Taylor Johnston | Data Visualization Designer and Developer" />
+  <meta name="twitter:description" content="Data journalist, information designer, and developer. I build visual stories at the intersection of data and design." />
+  <meta name="twitter:image" content="https://johnstont05.github.io/img/og.png" />
+</svelte:head>
+
 {@render children()}
 
 <footer>
