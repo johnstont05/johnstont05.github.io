@@ -33,27 +33,36 @@ function normalizeImageUrl(url) {
 }
 
 function parseCSV(text) {
-  const lines = text.trim().split('\n');
-  const headers = lines[0]
-    .split(',')
-    .map((h) => h.replace(/^"|"$/g, '').trim());
+  const rows = [];
+  let fields = [];
+  let current = '';
+  let inQuotes = false;
 
-  return lines.slice(1).map((line) => {
-    // Handle quoted fields with commas inside them
-    const values = [];
-    let current = '';
-    let inQuotes = false;
-    for (const char of line) {
-      if (char === '"') { inQuotes = !inQuotes; }
-      else if (char === ',' && !inQuotes) { values.push(current); current = ''; }
-      else { current += char; }
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    const next = text[i + 1];
+
+    if (ch === '"') {
+      if (inQuotes && next === '"') { current += '"'; i++; } // escaped quote
+      else { inQuotes = !inQuotes; }
+    } else if (ch === ',' && !inQuotes) {
+      fields.push(current); current = '';
+    } else if ((ch === '\n' || (ch === '\r' && next === '\n')) && !inQuotes) {
+      if (ch === '\r') i++;
+      fields.push(current); current = '';
+      rows.push(fields); fields = [];
+    } else {
+      current += ch;
     }
-    values.push(current);
+  }
+  if (current || fields.length) { fields.push(current); rows.push(fields); }
 
-    return Object.fromEntries(
-      headers.map((h, i) => [h, (values[i] ?? '').trim()])
+  const headers = rows[0].map((h) => h.trim());
+  return rows.slice(1)
+    .filter((r) => r.some((v) => v.trim()))
+    .map((values) =>
+      Object.fromEntries(headers.map((h, i) => [h, (values[i] ?? '').trim()]))
     );
-  });
 }
 
 export async function load({ fetch }) {
@@ -76,7 +85,9 @@ export async function load({ fetch }) {
     date: apDate(c.date),
     image_url: normalizeImageUrl(c.image_url),
     featured_image_url: normalizeImageUrl(c.featured_image_url),
-  })).sort((a, b) => dateValue(b.date) - dateValue(a.date));
+  }))
+  .filter((c) => c.hidden?.toLowerCase() !== 'true')
+  .sort((a, b) => dateValue(b.date) - dateValue(a.date));
   // @ts-ignore
   const fun = parseCSV(funCSV).map((f) => ({
     ...f,
@@ -104,5 +115,10 @@ export async function load({ fetch }) {
     c.archive_only?.toLowerCase() !== 'false'
   );
 
-  return { jobs: jobsWithClips, featured, archive, fun };
+  // Include anything with a type set (chart/project), plus non-archive items without a type
+  const allWork = clips
+    .filter((c) => c.type?.trim() ? true : c.archive_only?.toLowerCase() !== 'true')
+    .sort((a, b) => dateValue(b.date) - dateValue(a.date));
+
+  return { jobs: jobsWithClips, featured, archive, fun, allWork };
 }

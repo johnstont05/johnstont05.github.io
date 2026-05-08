@@ -1,74 +1,79 @@
 <script>
-  import { onMount } from 'svelte';
-  import SeoMeta from '$lib/components/SeoMeta.svelte';
-  import FeaturedItem from '$lib/components/FeaturedItem.svelte';
-  import JobBlock from '$lib/components/JobBlock.svelte';
-  import WallGrid from '$lib/components/WallGrid.svelte';
+  // @ts-nocheck
+  import WorkGrid from "$lib/components/WorkGrid.svelte";
   export let data;
 
-  const full = "hey, i'm taylor.";
-  const tealWord = 'taylor';
-  const tealStart = full.indexOf(tealWord);
-  const tealEnd = tealStart + tealWord.length;
+  function dateValue(str) {
+    if (!str) return 0;
+    const ts = Date.parse(str.replace(/\./g, ''));
+    return Number.isNaN(ts) ? 0 : ts;
+  }
 
-  let typed = '';
-  let done = false;
+  $: work = data.allWork;
 
-  $: pre   = typed.slice(0, Math.min(typed.length, tealStart));
-  $: teal  = typed.length > tealStart ? typed.slice(tealStart, Math.min(typed.length, tealEnd)) : '';
-  $: post  = typed.length > tealEnd   ? typed.slice(tealEnd) : '';
-
-  onMount(() => {
-    let i = 0;
-    const id = setInterval(() => {
-      typed = full.slice(0, ++i);
-      if (i >= full.length) { clearInterval(id); setTimeout(() => done = true, 1800); }
-    }, 55);
-    return () => clearInterval(id);
-  });
+  $: funSections = (() => {
+    const map = new Map();
+    for (const item of data.fun) {
+      const key = item.section || "Fun";
+      if (!map.has(key)) map.set(key, { label: key, items: [] });
+      map.get(key).items.push({
+        org: item.type || "",
+        title: item.title,
+        url: item.url || "#",
+        image_url: item.image_url || "",
+        featured_image_url: "",
+        date: item.date || "",
+        tag: item.tag || "",
+        featured_why: item.featured_why || "",
+        awards: item.awards || "",
+        note: item.note || "",
+      });
+    }
+    return [...map.values()].map((s) => ({
+      ...s,
+      items: s.items.sort((a, b) => dateValue(b.date) - dateValue(a.date)),
+    }));
+  })();
 </script>
 
 <svelte:head>
-  <title>taylor johnston</title>
+  <title>Taylor Johnston | Data Visualization Designer and Developer</title>
 </svelte:head>
-
-<SeoMeta description="Data + graphics journalist. I find the story in the spreadsheet – from records requests and data analysis to design and front-end development. Scroll down to see my work." />
 
 <div class="page-container">
   <div class="hero">
-    <h1>{pre}<span style="color: var(--teal);">{teal}</span>{post}<span class="cursor" class:hidden={done}>|</span></h1>
-    <p class="bio">I'm a <b>data visualization journalist</b> who turns complex data into clear, human stories — from the records request to the final interactive. Scroll down to see my work or click here to read more about me.</p>
+    <!-- <div class="intro">Hey, I'm</div> -->
+    <h1>Taylor Johnston</h1>
+    <div class="tag">
+      data journalist &bull; information designer &bull; developer
+    </div>
+    <p class="bio">
+I do the analysis, write the code and build the thing. I've made hundreds of charts, built interactive maps and scrollytelling experiencesand wrangled more datasets than I'd like to admit — all in service of making complicated things make sense. I'm happiest when the work actually changes how someone understands something. <br><br>
+When I'm not in a spreadsheet, I'm making stickers for my <a href="https://www.etsy.com/shop/stickersbytayfayjay" target="_blank">Etsy shop</a>, listening to an audiobook, or collecting pins from somewhere I've traveled to.
+
+
+
+    </p>
+    <p class="jump-sentence">
+      Take a look at my <a href="#work" class="jump-inline">work</a> {#if funSections.length}  – or take a detour through <a href="#{funSections[0].label.toLowerCase().replace(/\s+/g, '-')}" class="jump-inline">a fun thing I made</a>{/if}.
+    </p>
   </div>
 
-<div class="section-head">
-  <span class="label">Featured work</span>
-  <hr />
-</div>
+  {#if work.length}
+    <div id="work" class="section-head">
+      <span class="label">Work</span>
+      <hr />
+    </div>
+    <WorkGrid clips={work} />
+  {/if}
 
-<div class="featured-list">
-  {#each data.featured as item, i}
-    <FeaturedItem {item} index={i} />
+  {#each funSections as section}
+    <div id={section.label.toLowerCase().replace(/\s+/g, '-')} class="section-head">
+      <span class="label">{section.label}</span>
+      <hr />
+    </div>
+    <WorkGrid clips={section.items} />
   {/each}
-</div>
-
-<div class="section-head jobs-head">
-  <span class="label">By organization</span>
-  <hr />
-</div>
-
-<div class="jobs">
-  {#each data.jobs as job}
-    <JobBlock {job} />
-  {/each}
-</div>
-
-<div class="wall-section">
-  <div class="section-head" style="padding: 24px clamp(36px,5vw,72px) 20px; margin-top: 0">
-    <span class="label">Visual archive</span>
-    <hr />
-  </div>
-  <WallGrid clips={data.archive} />
-</div>
 </div>
 
 <style>
@@ -77,43 +82,69 @@
     min-height: 100vh;
   }
 
-  /* ── Hero ── */
+  /* Hero */
   .hero {
-    padding: 80px clamp(36px, 5vw, 80px) 72px;
-    border-bottom: 1px solid var(--color-border);
-    animation: slideUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
+    background: var(--teal);
+    padding: 68px clamp(36px, 5vw, 80px) 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
+  /* .intro {
+    font-family: var(--sans);
+    font-size: var(--16px);
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--light-teal);
+    margin-bottom: 0.5rem;
+  } */
   h1 {
     font-family: var(--display);
-    font-size: clamp(52px, 9vw, 110px);
-    font-weight: normal !important;
-    color: var(--black);
+    font-size: var(--80px);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--light-teal);
+    margin-bottom: 20px;
+  }
+  .tag {
+    font-family: var(--sans);
+    color: var(--chartreuse);
+    font-size: var(--24px);
+    font-weight: 500;
+    letter-spacing: 0.02em;
     margin-bottom: 24px;
-  }
-  .cursor {
-    color: var(--teal);
-    animation: blink 0.8s step-end infinite;
-  }
-  .cursor.hidden { display: none; }
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0; }
   }
   .bio {
     font-family: var(--sans);
-    font-size: 2rem;
-    line-height: 1.2;
-    color: var(--black);
-    max-width: 1100px;
-    animation: slideUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.15s both;
+    font-size: var(--18px);
+    line-height: 1.4;
+    color: var(--light-teal);
+    max-width: 700px;
+  }
+  .bio a {
+    color: var(--light-teal);
+    font-weight: 700;
+    text-decoration-color: rgba(222, 234, 233, 0.4);
   }
 
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(32px); }
-    to   { opacity: 1; transform: translateY(0); }
+  .jump-sentence {
+    font-family: var(--sans);
+    font-size: var(--18px);
+    color: rgba(222, 234, 233, 0.6);
+    margin-top: 28px;
+    line-height: 1.4;
   }
+  .jump-inline {
+    color: var(--chartreuse);
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+  .jump-inline:hover { opacity: 0.75; }
 
-  /* ── Section heads ── */
+  /* Work section heads */
   .section-head {
     padding: 0 clamp(36px, 5vw, 80px);
     margin: 56px 0 28px;
@@ -123,10 +154,10 @@
   }
   .label {
     font-family: var(--sans);
-    font-weight: normal;
-    font-size: 16px;
+    font-size: var(--16px);
     letter-spacing: 0.06em;
     text-transform: uppercase;
+    font-weight: bold;
     white-space: nowrap;
     background-color: var(--teal);
     color: var(--light-teal);
@@ -137,16 +168,19 @@
     border: none;
     border-top: 1px solid var(--teal);
   }
-
-  .featured-list { padding: 0 clamp(36px, 5vw, 80px) 72px; display: flex; flex-direction: column; gap: 56px; }
-
-  .jobs-head { border-top: 1px solid var(--color-border); padding-top: 56px; }
-  .jobs { padding: 0 clamp(36px, 5vw, 80px) 72px; }
-
-  .wall-section { border-top: 1px solid var(--color-border); }
-
   @media (max-width: 680px) {
-    .bio { font-size: 1.25rem; }
-    .featured-list { gap: 40px; }
+    .hero {
+      padding-top: 48px;
+      padding-bottom: 40px;
+    }
+    h1 {
+      font-size: var(--40px);
+    }
+    .tag {
+      font-size: var(--16px);
+    }
+    .bio {
+      font-size: var(--14px);
+    }
   }
 </style>
