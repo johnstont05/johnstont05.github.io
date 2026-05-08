@@ -20,6 +20,9 @@ html { overflow-x: hidden; scroll-behavior: smooth; }
   --18px: 1.125rem;
   --20px: 1.25rem;
   --24px: 1.5rem;
+  --28px: 1.75rem;
+  --32px: 2rem;
+  --36px: 2.25rem;
   --40px: 2.5rem;
   --88px: 5.5rem;
   --80px: 5rem;
@@ -35,7 +38,7 @@ html { overflow-x: hidden; scroll-behavior: smooth; }
 body {
   font-family: var(--sans);
   color: var(--black);
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.65;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;

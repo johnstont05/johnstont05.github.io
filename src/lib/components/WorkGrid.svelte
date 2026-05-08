@@ -63,10 +63,12 @@
 
             <div
               class="img"
-              style={imgSrc
-                ? `background: url('${imgSrc}') center/cover no-repeat`
-                : `background: ${fallbackColors[globalIndex % fallbackColors.length]}`}
-            ></div>
+              style={imgSrc ? '' : `background: ${fallbackColors[globalIndex % fallbackColors.length]}`}
+            >
+              {#if imgSrc}
+                <img src={imgSrc} alt={clip.title} />
+              {/if}
+            </div>
 
             <div class="bottom">
               <div class="meta">
@@ -99,28 +101,29 @@
   .masonry {
     display: flex;
     align-items: flex-start;
-    gap: 20px;
-    padding: 0 clamp(36px, 5vw, 80px) 72px;
+    gap: 1.25rem;
+    padding: 0 clamp(2.25rem, 5vw, 5rem) 4.5rem;
   }
 
   .col {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 1.25rem;
   }
 
   .card {
     background: #ffffff9e;
-    border-radius: 5px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 0.3125rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     display: flex;
     flex-direction: column;
   }
 
   .card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.09);
+    transform: translateY(-0.1875rem);
+    box-shadow: 0 0.375rem 1.25rem rgba(0, 0, 0, 0.09);
+    background: #ffffff;
   }
 
   .card-link {
@@ -133,10 +136,10 @@
 
   /* ── Top: org + title ── */
   .top {
-    padding: 16px 18px 14px;
+    padding: 1rem 1.125rem 0.875rem;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 0.375rem;
   }
 
   .org {
@@ -165,6 +168,13 @@
     width: 100%;
     aspect-ratio: 4 / 3;
     flex-shrink: 0;
+    overflow: hidden;
+  }
+  .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   /* ── Bottom: date, tags, desc ── */
@@ -172,15 +182,15 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 14px 18px 18px;
-    gap: 10px;
+    padding: 0.875rem 1.125rem 1.125rem;
+    gap: 0.625rem;
   }
 
   .meta {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
+    gap: 0.625rem;
   }
 
   .date {
@@ -194,7 +204,7 @@
   .tag-row {
     display: flex;
     flex-wrap: nowrap;
-    gap: 5px;
+    gap: 0.3125rem;
     justify-content: flex-end;
     overflow: hidden;
   }
@@ -205,7 +215,7 @@
     text-transform: uppercase;
     color: #fff;
     background: var(--black);
-    padding: 1px 5px;
+    padding: 0.0625rem 0.3125rem;
     white-space: nowrap;
   }
 
@@ -230,13 +240,25 @@
     color: var(--gray, #888);
     margin: 0;
     white-space: pre-line;
-    padding: 0 18px 14px;
+    padding: 0 1.125rem 0.875rem;
   }
 
   .note :global(a),
   .desc :global(a) {
     color: var(--teal);
     text-decoration: underline;
-    text-underline-offset: 2px;
+    text-underline-offset: 0.125rem;
+  }
+
+  @media (max-width: 580px) {
+    .masonry {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      justify-content: center;
+    }
+    .col {
+      width: 100%;
+      max-width: 100%;
+    }
   }
 </style>
