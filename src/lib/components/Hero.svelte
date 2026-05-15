@@ -62,13 +62,6 @@
     color: var(--light-teal);
     max-width: 46.875rem;
   }
-  .bio a {
-    color: var(--light-teal);
-    font-weight: 400;
-    text-decoration: underline;
-    text-decoration-color: rgba(222, 234, 233, 0.5);
-    text-underline-offset: 0.15em;
-  }
   .jump-sentence {
     font-family: var(--sans);
     font-size: var(--18px);
